@@ -1,10 +1,29 @@
 import * as React from "react"
+import Product from "../components/Product.js";
+import { createContext, useContext} from 'react';
 
 const pageStyles = {
   color: "#232129",
   padding: 96,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  display:"flex",
 }
+
+const sizeElement = {
+  backgroundColor:"#ECECEC",
+  borderRadius:"100%",
+  width:30,
+  height:30,
+  display:"flex",
+  justifyContent:"center",
+  alignItems :"center",
+  fontWeight:"light",
+  fontSize:11
+}
+
+
+
+
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
@@ -77,96 +96,117 @@ const badgeStyle = {
   lineHeight: 1,
 }
 
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
+
+
+let panier = [
+  {"name":"Shoed1","image":"url"},
+  {"name":"Shoed1","image":"url"},
+  {"name":"Shoed1","image":"url"},
 ]
 
-const IndexPage = () => {
+
+function generateProduct(){
+  let i =0; 
+  let id =42;
+  let data = [];
+  let names = ["pants","sweatshirt","hoodie","tshirt","coat"];
+  let adjectives = ["classy","cosy","regular","chic","fire"];
+  let images = {
+    "pants":"",
+    "sweatshirt":"",
+    "hoodie":"",
+    "tshirt":"",
+    "coat":""
+  }
+
+  while(i<10){
+    let type = names[Math.floor(Math.random()*4)];
+    let randomName = `${type} ${adjectives[Math.floor(Math.random()*4)]}`
+    data.push({
+      "name":randomName,
+      "stock":Math.round(Math.random()*50),
+      "price":Math.round(Math.random()*120),
+      "image":images[type],
+      "id":id++
+    })
+    i++;
+
+  }
+  //console.log(data);
+  return data;
+}
+
+const sizes = ["XS","S","M","L","XL"];
+const checkout_context = createContext({
+  "checkout":panier
+});
+
+//let products = generateProduct();
+//console.log("PRD",products)
+//Overlay : No Overlay yet
+//Checkout: Toogle OK , add product ?
+//products : Design :?
+const Contexted = () =>{
+  const ctx = useContext(checkout_context);
+  console.log("ctx",ctx)
+  
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+    <div>
+      {ctx.checkout.map(it=>(
+        <div className="item">
+          <p>{it.name}</p>
+          <p>{it.image}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+const IndexPage = () => {
+  const [overlay,setOverlay] = React.useState(false)
+  const [products,setProducts] = React.useState(generateProduct())
+  const [size,setSize] = React.useState("XS");
+  const [amount,setAmount] = React.useState(0.00)
+
+  
+  return (
+    <main style={{...pageStyles,position:"relative"}}>
+      <checkout_context.Provider value={{"checkout":panier}}>
+      <div>
+        <h2>Tailles:</h2>
+        <div className="sizes" style={{display:"flex",flexWrap:"wrap",width:"15vw",height:"20vh",justifyContent:"space-around",marginRight:10}}>
+          {sizes.map(s=>(
+            <div key={s} onClick={()=>setSize(s)} style={{...sizeElement,backgroundColor:size===s? "green":"grey"}}>{s}</div>
+          ))}
+        </div>
+      </div>
+      <div style={{alignItems:"center"}}>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexWrap:"wrap"}}>
+            {products.map(el=>(
+              <Product key={el.id} price={el.price} name={el.name}/>
+            ))}
+        </div>
+      </div>
+      <div>
+          
+          
+          <div style={{display:"block",backgroundColor:"#1B1A20",position:"fixed",right:0,top:0,color:"white"}}>
+            <p onClick={()=>setOverlay(!overlay)}><img alt="cart"/></p>
+            <div style={{display:overlay? "flex":"none",width:"33vw",height:"100vh",flexDirection:"column",alignItems:"center",justifyContent:"space-around"}}>
+                <p>Panier</p>
+                <div>
+                  <Contexted/>
+                </div>
+                <div style={{backgroundColor:"#1B1A20",border:"1px solid black",width:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
+                    <div>
+                      <p>Sous total</p>
+                      <p>{amount} $</p>
+                    </div>
+                    <button>Commander</button>
+                </div>
+            </div>
+          </div>
+      </div>
+      </checkout_context.Provider>
     </main>
   )
 }

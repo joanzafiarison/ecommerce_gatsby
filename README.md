@@ -52,3 +52,11 @@
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
 [<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+
+
+Uses Context to handle Checkout...
+1) create context    myContext = createContext({"a":"something";"b":[]})
+2) Wrap my block with <myContext.Provider>
+3) Assign a value
+4) Use value, with ctx = useContext(MyContext)
+5) You can then access value with ctx.a or ctx.b
