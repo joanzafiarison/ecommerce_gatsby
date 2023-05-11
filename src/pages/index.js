@@ -1,6 +1,7 @@
 import * as React from "react"
 import Product from "../components/Product.js";
 import { createContext, useContext} from 'react';
+import {checkout_context} from '../services/context.js';
 
 const pageStyles = {
   color: "#232129",
@@ -24,34 +25,6 @@ const sizeElement = {
 
 
 
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
 
 const linkStyle = {
   color: "#8954A8",
@@ -66,42 +39,10 @@ const docLinkStyle = {
   marginBottom: 24,
 }
 
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
 
 
 let panier = [
-  {"name":"Shoed1","image":"url"},
-  {"name":"Shoed1","image":"url"},
-  {"name":"Shoed1","image":"url"},
+  {"name":"made_up", "image":"myimage"}
 ]
 
 
@@ -137,9 +78,7 @@ function generateProduct(){
 }
 
 const sizes = ["XS","S","M","L","XL"];
-const checkout_context = createContext({
-  "checkout":panier
-});
+//const checkout_context = createContext();
 
 //let products = generateProduct();
 //console.log("PRD",products)
@@ -152,25 +91,28 @@ const Contexted = () =>{
   
   return (
     <div>
-      {ctx.checkout.map(it=>(
-        <div className="item">
-          <p>{it.name}</p>
-          <p>{it.image}</p>
+      {ctx.checkout.map((it,i)=>(
+        <div className="item" key={i}>
+          <p>Produit : {it.name}</p>
+          <p>Price : {it.price}</p>
         </div>
       ))}
     </div>
   )
 }
+
+const array1 = [10,20];
 const IndexPage = () => {
   const [overlay,setOverlay] = React.useState(false)
   const [products,setProducts] = React.useState(generateProduct())
   const [size,setSize] = React.useState("XS");
-  const [amount,setAmount] = React.useState(0.00)
-
-  
+  const [checkout, setCheckout] = React.useState([])
+  console.log("reduce ex ",checkout.map(el=>el.price).reduce((acc, current)=> acc + current, 0))
+  //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
+  // on set le context
   return (
     <main style={{...pageStyles,position:"relative"}}>
-      <checkout_context.Provider value={{"checkout":panier}}>
+      <checkout_context.Provider value={{checkout, setCheckout}}>
       <div>
         <h2>Tailles:</h2>
         <div className="sizes" style={{display:"flex",flexWrap:"wrap",width:"15vw",height:"20vh",justifyContent:"space-around",marginRight:10}}>
@@ -199,7 +141,7 @@ const IndexPage = () => {
                 <div style={{backgroundColor:"#1B1A20",border:"1px solid black",width:"100%",display:"flex",flexDirection:"column",alignItems:"center"}}>
                     <div>
                       <p>Sous total</p>
-                      <p>{amount} $</p>
+                      <p> {checkout.map(el=>el.price).reduce((acc, current)=> acc + current, 0)}$</p>
                     </div>
                     <button>Commander</button>
                 </div>
