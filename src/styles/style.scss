@@ -2,6 +2,7 @@ $font-stack: Helvetica, sans-serif;
 $font-roboto :  Roboto, sans-serif;
 $primary-color: #333;
 $second-color: #232129;
+$clear-grey:#ECECEC;
 $text-important : 24px; 
 $text-second : 18px; 
 $text-basic : 14px;
@@ -16,7 +17,7 @@ body {
 }
 
 .size {
-    background-color: $second-color;
+    background-color: $clear-grey;
     border-radius: 100%;
     width: 47px;
     height: 47px;
@@ -25,6 +26,10 @@ body {
     align-items: center;
     font-size: $text-basic;
     margin:0 0.3em 0 0.3em;
+}
+
+.size:hover {
+    border: 1px solid $second-color;
 }
 
 
