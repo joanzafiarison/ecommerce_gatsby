@@ -1,0 +1,86 @@
+$font-stack: Helvetica, sans-serif;
+$font-roboto :  Roboto, sans-serif;
+$primary-color: #333;
+$second-color: #232129;
+$text-important : 24px; 
+$text-second : 18px; 
+$text-basic : 14px;
+
+//typo
+//colors
+
+body {
+  font: 100% $font-roboto;
+  color: $primary-color;
+  font-size : $text-basic;
+}
+
+.size {
+    background-color: $second-color;
+    border-radius: 100%;
+    width: 47px;
+    height: 47px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: $text-basic;
+    margin:0 0.3em 0 0.3em;
+}
+
+
+.product_grid {
+    display:grid; 
+    width: 85%;
+    grid-template-columns: repeat(4, 1fr);
+    @media screen and (max-width:1025px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width:768px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.product {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    text-align : center;
+    margin:30px;
+}
+
+.product_image {
+    width: 100%;//calc(100vw/7); 
+    height: calc(100vh/4);
+    background-color: grey;
+    border:1px solid black;
+    margin:30px;
+    @media screen and (max-width:768px){
+        height:328px;
+    }
+}
+.product_name {
+    font-size: $text-important;
+    font-weight :600
+}
+
+.price {
+    font-size : $text-important; 
+    font-weight : 700;
+}
+
+.price > span {
+    font-weight:100
+}
+
+.add_button {
+    padding:5px;
+    width:calc(100vw/7); 
+    background-color: $second-color;
+    color :white;
+    border :none;
+}
+
+.add_button:hover {
+    background-color: yellow;
+    color : $second-color;
+   
+}

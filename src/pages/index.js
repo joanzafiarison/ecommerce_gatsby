@@ -2,11 +2,11 @@ import * as React from "react"
 import Product from "../components/Product.js";
 import { createContext, useContext} from 'react';
 import {checkout_context} from '../services/context.js';
+import "../styles/style.scss";
 
 const pageStyles = {
-  color: "#232129",
   padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  //fontFamily: "-apple-system, Roboto, sans-serif, serif",
   display:"flex",
 }
 
@@ -66,7 +66,7 @@ function generateProduct(){
     data.push({
       "name":randomName,
       "stock":Math.round(Math.random()*50),
-      "price":Math.round(Math.random()*120),
+      "price":`${Math.round(Math.random()*120)}.${Math.round(Math.random()*99)}`,
       "image":images[type],
       "id":id++
     })
@@ -115,14 +115,14 @@ const IndexPage = () => {
       <checkout_context.Provider value={{checkout, setCheckout}}>
       <div>
         <h2>Tailles:</h2>
-        <div className="sizes" style={{display:"flex",flexWrap:"wrap",width:"15vw",height:"20vh",justifyContent:"space-around",marginRight:10}}>
+        <div className="sizes" style={{display:"flex",flexWrap:"wrap",width:"15vw",justifyContent:"space-around",marginRight:10}}>
           {sizes.map(s=>(
-            <div key={s} onClick={()=>setSize(s)} style={{...sizeElement,backgroundColor:size===s? "green":"grey"}}>{s}</div>
+            <div className="size" key={s} onClick={()=>setSize(s)} style={{backgroundColor:size===s? "green":"grey"}}>{s}</div>
           ))}
         </div>
       </div>
       <div style={{alignItems:"center"}}>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",flexWrap:"wrap"}}>
+        <div className="product_grid">
             {products.map(el=>(
               <Product key={el.id} price={el.price} name={el.name}/>
             ))}
