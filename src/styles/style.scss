@@ -1,17 +1,19 @@
 $font-stack: Helvetica, sans-serif;
 $font-roboto :  Roboto, sans-serif;
+$font-new : "Segoe UI", Roboto, Oxygen, sans-serif;
 $primary-color: #333;
 $second-color: #232129;
 $clear-grey:#ECECEC;
 $text-important : 24px; 
 $text-second : 18px; 
 $text-basic : 14px;
+$text-mini: 11px;
 
 //typo
 //colors
 
 body {
-  font: 100% $font-roboto;
+  font: 100% $font-new;
   color: $primary-color;
   font-size : $text-basic;
 }
@@ -56,12 +58,13 @@ body {
     width: 100%;//calc(100vw/7); 
     height: calc(100vh/4);
     background-color: grey;
-    border:1px solid black;
     margin:30px;
     @media screen and (max-width:768px){
         height:328px;
     }
 }
+
+
 .product_name {
     font-size: $text-important;
     font-weight :600
@@ -75,6 +78,64 @@ body {
 .price > span {
     font-weight:100
 }
+
+/*CHECKOUT*/
+
+.item {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    padding:1em;
+}
+
+.item::before {
+    position : absolute;
+    top : 0px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.item_image {
+    width:60px;
+    height:80px;
+    background-color: $primary-color;
+}
+
+.checkout_image_open {
+    margin: 0px;
+    padding: 0.2em;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    position: relative;
+}
+
+
+.bubble {
+    position : absolute;
+    width:20px;
+    height:20px;
+    bottom:0px;
+    right:0px;
+    text-align: center;
+    background-color: rgb(234, 191, 0);
+    color:$second-color;
+    border-radius:10px;
+}
+
+.meta_title {
+    font-size:$text-basic;
+    color: rgb(236, 236, 236);
+}
+
+.meta_detail{
+    font-size:$text-mini;
+    font-weight:100;
+    color:rgb(91, 90, 94);
+}
+
+
+
+/**/
 
 .add_button {
     padding:5px;
