@@ -10,9 +10,9 @@ const sizes = ["XS","S","M","L","XL"];
 
 const SizeSwitcher = () =>{
     const {size, setSize} = useContext(checkout_context);
-    return <div>
+    return <div className="size_box">
         <h2>Tailles:</h2>
-        <div className="sizes" style={{display:"flex",flexWrap:"wrap",width:"15vw",justifyContent:"space-around",marginRight:10}}>
+        <div className="sizes" >
         {sizes.map(s=>(
             <div className="size" key={s} onClick={()=>setSize(s)} style={{backgroundColor:size===s? "black" : colors["grey_clear"]}}>{s}</div>
         ))}

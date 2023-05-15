@@ -18,16 +18,47 @@ body {
   font-size : $text-basic;
 }
 
+.main_container {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    @media screen and (max-width:1025px){
+        grid-template-columns: 1fr;
+    }
+}
+
+#logo {
+    text-align: center;
+}
+
+.size_box {
+    width : 15vw;
+    @media screen and (max-width:1025px){
+        margin : auto;
+    }
+}
+
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    margin-right:10px;
+    @media screen and (max-width:1025px){
+        flex-wrap: nowrap;
+        width:100%;
+    }
+}
+
 .size {
     background-color: $clear-grey;
     border-radius: 100%;
-    width: 47px;
-    height: 47px;
+    width: 25px;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: $text-basic;
-    margin:0 0.3em 0 0.3em;
+    //margin:0 0.3em 0 0.3em;
 }
 
 .size:hover {
@@ -51,14 +82,13 @@ body {
     //flex-direction: column;
     //align-items: center;
     text-align : center;
-    margin:30px;
+    margin:10px;
 }
 
 .product_image {
     width: 100%;//calc(100vw/7); 
     height: calc(100vh/4);
     background-color: grey;
-    margin:30px;
     @media screen and (max-width:768px){
         height:328px;
     }
@@ -146,7 +176,12 @@ body {
 }
 
 .add_button:hover {
-    background-color: yellow;
+    background-color: #EABF00;
     color : $second-color;
    
+}
+
+footer {
+    display : flex;
+    justify-content: space-around;
 }

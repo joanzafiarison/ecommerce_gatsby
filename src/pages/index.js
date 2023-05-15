@@ -2,6 +2,8 @@ import React , {useState} from "react"
 import Product from "../components/Product.js";
 import { createContext, useContext} from 'react';
 import {checkout_context} from '../services/context.js';
+import UserNavBar from "../components/UserNavbar.js";
+import Layout from "../components/Layout.js";
 import SizeSwitcher from "../components/SizeSwitcher.js";
 import Checkout from "../components/Checkout.js";
 
@@ -12,36 +14,6 @@ import "../styles/style.scss";
 const pageStyles = {
   padding: 96,
   //fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  display:"flex",
-}
-
-const sizeElement = {
-  backgroundColor:"#ECECEC",
-  borderRadius:"100%",
-  width:30,
-  height:30,
-  display:"flex",
-  justifyContent:"center",
-  alignItems :"center",
-  fontWeight:"light",
-  fontSize:11
-}
-
-
-
-
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
 }
 
 
@@ -96,22 +68,35 @@ const IndexPage = () => {
   //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
   // on set le context
   return (
-    <main style={{...pageStyles,position:"relative"}}>
-      <checkout_context.Provider value={{checkout, setCheckout, overlay , setOverlay, size, setSize}}>
-          <SizeSwitcher/>
-          <div style={{alignItems:"center"}}>
-            <div className="product_grid">
-                {products.map(el=>(
-                  <Product key={el.id} price={el.price} name={el.name}/>
-                ))}
+    <checkout_context.Provider value={{checkout, setCheckout, overlay , setOverlay, size, setSize}}>
+      <main style={{...pageStyles,position:"relative"}}>
+          <Layout>
+            <div id="hero">
+              <div>
+                <h1>Vetement 1</h1>
+              </div>
+              <div>
+                <h1>Vetement 2</h1>
+              </div>
             </div>
-          </div>
-          <Checkout/>
-      </checkout_context.Provider>
-    </main>
+            <div className="main_container">
+                <SizeSwitcher/>
+                <div style={{alignItems:"center"}}>
+                  <div className="product_grid">
+                      {products.map(el=>(
+                        <Product key={el.id} price={el.price} name={el.name}/>
+                      ))}
+                  </div>
+                </div>
+                <Checkout/>
+            </div>
+          </Layout>
+        
+      </main>
+    </checkout_context.Provider>
   )
 }
 
 export default IndexPage
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>Baggart</title>
