@@ -24,10 +24,9 @@ const App = () => {
             <Layout>
               <Router>
                 <Home path="/"/>
-                <Profile path="/app/profile"/>
-                <Command path="/app/command"/>
                 <Login path="/app/login"/>
-                <PrivateRoute path="/app/test" component={TestPage}/>
+                <PrivateRoute path="/app/command" component={Command}/>
+                <PrivateRoute path="/app/profile" component={Profile}/>
               </Router>
             </Layout>
         </main>

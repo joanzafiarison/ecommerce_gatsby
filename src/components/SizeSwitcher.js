@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { checkout_context } from "../services/context";
 
 let colors = {
-    "grey_clear":"#ECECEC;"
+    "grey_clear":"#ECECEC"
   }
   
 

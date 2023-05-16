@@ -18,6 +18,14 @@ body {
   font-size : $text-basic;
 }
 
+li {
+    list-style-type : none;
+}
+
+.search_button {
+    width:30px;
+}
+
 .main_container {
     display:grid;
     grid-template-columns: 1fr 1fr;
@@ -26,13 +34,66 @@ body {
     }
 }
 
+
+#hero {
+    margin : 0px 0px 7em 0px;
+}
+/*HERO PRODUCT*/
+.hero_product {
+    filter : brightness(85%);
+    background-size:cover;
+    width : 85vw;
+    height : 80vh;
+    display:flex;
+    justify-content: flex-end;
+    align-items: end;
+    margin:4em auto;
+}
+
+.hero_title {
+    background-color: white;
+    height:30%;
+    margin:3em;
+    padding:2em;
+    opacity: 0.9;
+}
+
+.hero_title > h1 {
+    font-size: $text-second;
+}
+
+nav  {
+    width : 100%;
+}
+nav > ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color :black;
+}
+
+nav > ul> li > a:hover {
+    text-decoration: underline;
+}
+
+/*PRODUCT*/
+
+/*INPUT */
+
+#search {
+    width:30%;
+}
+
 form {
     display: grid;
     margin: 5em 0 5em;
     box-shadow: 1px 2px 6px grey;
 }
 
-/*INPUT */
+
 form > label {
     margin: 1em;
     display: flex;
@@ -104,7 +165,7 @@ input[type="submit"] {
     }
 }
 .product {
-    //display: flex;
+    display: flex;
     //flex-direction: column;
     //align-items: center;
     text-align : center;
@@ -208,6 +269,26 @@ input[type="submit"] {
 }
 
 footer {
-    display : flex;
-    justify-content: space-around;
+    background-color: #ECECEC;
 }
+
+.liens {
+    display: flex;
+}
+
+
+/*FAQ*/ 
+
+.info {
+    display :none;
+}
+
+.expand {
+    display:flex;
+    flex-direction: column;
+}
+
+.question {
+    display:flex;
+}
+

@@ -1,8 +1,11 @@
-import React from "react";
+import React , {useEffect} from "react";
 import SizeSwitcher from "../components/SizeSwitcher";
 import Checkout from "../components/Checkout";
 import Product from "../components/Product";
+import HeroProduct from "../components/HeroProduct";
 import {checkout_context} from '../services/context.js';
+import t_shirt_img from "../images/t-shirt.png";
+import rash_img from "../images/rash1.webp";
 
 function generateProduct(){
     let i =0; 
@@ -35,23 +38,46 @@ function generateProduct(){
     return data;
   }
   
+  const featured_products_ = [
+    {
+        "name" :"T shirt manche longue de type compression",
+        "id" :678,
+        "img" : rash_img
+    },
+    {
+        "name" :"T shirt et Sweats",
+        "id" :679,
+        "img" : t_shirt_img
+    }
+]
 
 const Home = () => {
-    const [overlay,setOverlay] = React.useState(false)
-    const [products,setProducts] = React.useState(generateProduct())
+    const [overlay,setOverlay] = React.useState(false);
+    const [products,setProducts] = React.useState(generateProduct());
+    const [featuredProducts, setFeaturedProducts] = React.useState([]);
     const [size,setSize] = React.useState("XS");
-    const [checkout, setCheckout] = React.useState([])
-    console.log("reduce ex ",checkout.map(el=>el.price).reduce((acc, current)=> acc + current, 0))
+    const [checkout, setCheckout] = React.useState([]);
+
+    useEffect(() => {
+        //kind of api call
+        setFeaturedProducts(featured_products_);
+    },[])
+   
     return(
         <checkout_context.Provider value={{checkout, setCheckout, overlay , setOverlay, size, setSize}}>
-            <div id="hero">
-                <div>
-                    <h1>Vetement 1</h1>
+                <div id="hero">
+                    { featuredProducts.map( fp => (
+                        <HeroProduct name={fp.name} key={fp.id} img={fp.img}/>
+                    ))
+                    }
                 </div>
-                <div>
-                    <h1>Vetement 2</h1>
-                </div>
-                </div>
+                <form id="search">
+                    <label>
+                        Rechercher : 
+                        <input type="text" name="recherche" id="recherche"/>
+                        <button className="search_button"></button>
+                    </label>
+                </form>
                 <div className="main_container">
                     <SizeSwitcher/>
                     <div style={{alignItems:"center"}}>

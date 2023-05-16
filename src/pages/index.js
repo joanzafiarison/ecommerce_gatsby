@@ -8,7 +8,7 @@ import "../styles/style.scss";
 
 
 const pageStyles = {
-  padding: 96,
+  padding: 30,
   //fontFamily: "-apple-system, Roboto, sans-serif, serif",
 }
 
@@ -18,7 +18,7 @@ const IndexPage = () => {
   // on set le context
   return (
     
-      <main style={{...pageStyles,position:"relative"}}>
+      <main style={{...pageStyles}}>
           <Layout>
             <Home/>
           </Layout>
@@ -28,4 +28,4 @@ const IndexPage = () => {
 //
 export default IndexPage
 
-export const Head = () => <title>Baggart</title>
+export const Head = () => <title>Killer Moves Shop</title>
