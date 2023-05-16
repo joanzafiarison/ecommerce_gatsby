@@ -1,5 +1,6 @@
 import React from "react";
 import Layout from "../components/Layout.js";
+import Home from "../app/Home.js";
 
 
 import "../styles/style.scss";
@@ -19,7 +20,7 @@ const IndexPage = () => {
     
       <main style={{...pageStyles,position:"relative"}}>
           <Layout>
-            <h1>HOME</h1>
+            <Home/>
           </Layout>
       </main>
   )

@@ -26,6 +26,32 @@ body {
     }
 }
 
+form {
+    display: grid;
+    margin: 5em 0 5em;
+    box-shadow: 1px 2px 6px grey;
+}
+
+/*INPUT */
+form > label {
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+input[type="text"], input[type="password"] {
+    border-width: 0px 0px 1px;
+}
+
+input[type="submit"] {
+    width: 100px;
+    margin: 10px auto;
+}
+
+// INPUT**/
+
+
+
 #logo {
     text-align: center;
 }

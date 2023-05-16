@@ -1,20 +1,52 @@
 import React , {useState} from "react";
+import { HandleLogin, isLoggedIn } from "../services/auth";
+import { navigate } from "gatsby";
 
-const LoginPage = () => {
+const LoginPage =  () => {
     const [credentials, setCredentials] = useState({
         username : "",
-        password : ""
+        password : "",
+        email : ""
     }); 
 
-    function handleInputChange (e,data) {
+    function handleInputChange (e) {
         const value = e.target.value;
-        setCredentials({...credentials,[data]:value})
+        const name = e.target.name;
+        setCredentials({...credentials,[name]:value})
         console.log(credentials);
 
     }
+
+    function handleSubmit (event) {
+        event.preventDefault();
+        console.log("submit func")
+        HandleLogin(credentials);
+        console.log("loggin", isLoggedIn())
+        if( isLoggedIn() ){
+            console.log("let s go")
+            navigate("/app/profile")
+        }
+    }
+
+    //redirection a profile si connecté
+    if( isLoggedIn() ){
+        navigate('/app/profile')
+    }
+    else{
+        console.log("mauvais identiffiants")
+    }
+
     return (
         <div>
-            <form>
+            <form method="post" onSubmit={handleSubmit}>
+                <label>
+                    Pseudo  
+                    <input 
+                        type="text"
+                         name="username"
+                         onChange={handleInputChange}
+                    />
+                </label>
                 <label>
                     Email : 
                     <input 
@@ -31,10 +63,12 @@ const LoginPage = () => {
                         onChange={handleInputChange}
                     />
                 </label>
-                <input type="submit" value="Se connecter"/>
+                <input  type="submit" value="Se connecter"/>
             </form>
         </div>
     )
 }
+
+
 
 export default LoginPage;

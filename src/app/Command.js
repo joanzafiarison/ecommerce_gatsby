@@ -30,10 +30,10 @@ const CommandPage = () => {
             <h1>Commandes</h1>
             {
                 commands.map((product,i) => (
-                    <div class = "product" key={i}>
+                    <div className = "product" key={i}>
                         <p>{product.id}</p>
-                        {product.products.map(prd=> (
-                            <div class="product_list">
+                        {product.products.map((prd,k)=> (
+                            <div className="product_list" key={k}>
                                 <p>{prd.name}</p>
                                 <p>{prd.price}</p>
                                 <p>{prd.quantity}</p>

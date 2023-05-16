@@ -9,15 +9,15 @@ export const getUser = () =>
 const setUser = user => 
     window.localStorage.setItem("gatsbyUser",JSON.stringify(user)); 
 
-export const HandleLogin = ({user, pass , email}) => {
+export const HandleLogin = ({username, password, email }) => {
     //check si l'user existe avec un backend 
     //si oui on écrit dans le localstorage
     // on pourrait checker si des cookies ou autre on déjà été définis
     // Oauth2.0 => access token + user 
-    if(user === "Joan" && pass == "mdpIncroyable"){
+    if(username === "Joan" && password == "mdp"){
         return setUser({
-            user : user,
-            pass : pass,
+            username : username,
+            password : password,
             email : email,
         })
     }

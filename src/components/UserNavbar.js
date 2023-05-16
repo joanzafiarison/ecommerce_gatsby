@@ -1,11 +1,16 @@
 import React from "react"; 
-import {Link} from "gatsby";
+import {Link, navigate} from "gatsby";
+import { isLoggedIn, logout } from "../services/auth";
 
 const UserNavBar = () => {
+    function logout_process (){
+        navigate("/app/login");
+    }
     return (
         <nav>
-            <span>You are not logged in</span>
-
+            
+            <span>{isLoggedIn() ? "You are logged as ":"You are not logged in"}</span>
+                
             <Link to="/">Home</Link>
             {` `}
             <Link to="/app/profile">Profile</Link>
@@ -14,7 +19,7 @@ const UserNavBar = () => {
             {` `}
             <Link to="/app/command">Suivi des commandes</Link>
             {` `}
-            <Link to="/">Logout</Link>
+            <button onClick={()=>{logout(logout_process)}}>Logout</button>
         </nav>
     )
 }
