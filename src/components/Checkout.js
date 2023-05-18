@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { StaticImage } from "gatsby-plugin-image";
+import {Link} from "gatsby";
 import { checkout_context } from "../services/context";
 import Contexted from "../components/CheckoutContent.js";
 import cart_img from "../images/cart.png";
@@ -22,7 +23,7 @@ const Checkout = () =>{
                     <p>Sous total</p>
                     <p> {checkout.map(el=>el.price).reduce((acc, current)=> parseInt(acc) + parseInt(current), 0)}$</p>
                 </div>
-                <button>Commander</button>
+                <button><Link to="/app/payment">Commander</Link></button>
             </div>
         </div>
         </div>

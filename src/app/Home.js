@@ -52,11 +52,11 @@ function generateProduct(){
 ]
 
 const Home = () => {
-    const [overlay,setOverlay] = React.useState(false);
+    //const [overlay,setOverlay] = React.useState(false);
     const [products,setProducts] = React.useState(generateProduct());
     const [featuredProducts, setFeaturedProducts] = React.useState([]);
-    const [size,setSize] = React.useState("XS");
-    const [checkout, setCheckout] = React.useState([]);
+    //const [size,setSize] = React.useState("XS");
+    //const [checkout, setCheckout] = React.useState([]);
 
     useEffect(() => {
         //kind of api call
@@ -64,7 +64,7 @@ const Home = () => {
     },[])
    
     return(
-        <checkout_context.Provider value={{checkout, setCheckout, overlay , setOverlay, size, setSize}}>
+        <checkout_context.Provider>
                 <div id="hero">
                     { featuredProducts.map( fp => (
                         <HeroProduct name={fp.name} key={fp.id} img={fp.img}/>

@@ -2,11 +2,12 @@ import React from "react";
 import {Router} from "@reach/router";
 import Layout from "../components/Layout.js";
 import Home from "../app/Home.js";
-import Profile from "../app/profile.js";
+import Profile from "../app/Profile.js";
 import Login from "../app/login.js";
 import Command from "../app/Command.js";
+import Payment from "../app/Payment.js";
 import PrivateRoute from "../components/PrivateRoute.js";
-import TestPage from "../app/Test.js";
+import {checkout_context} from '../services/context.js';
 
 const pageStyles = {
     padding: 96,
@@ -15,24 +16,25 @@ const pageStyles = {
 
 
 const App = () => {
-
+    /*
+    const [overlay,setOverlay] = React.useState(false);
+    const [checkout, setCheckout] = React.useState([]);
+    const [size,setSize] = React.useState("XS");*/
     //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
     // on set le context
     return (
-      
-        <main style={{...pageStyles,position:"relative"}}>
-            <Layout>
-              <Router>
-                <Home path="/"/>
-                <Login path="/app/login"/>
-                <PrivateRoute path="/app/command" component={Command}/>
-                <PrivateRoute path="/app/profile" component={Profile}/>
-              </Router>
-            </Layout>
-        </main>
+      <Layout>
+          <Router>
+            <Home path="/"/>
+            <Login path="/app/login"/>
+            <PrivateRoute path="/app/command" component={Command}/>
+            <PrivateRoute path="/app/profile" component={Profile}/>
+            <Payment path="/app/payment"/>
+          </Router>
+      </Layout>
     )
   }
   //
   export default App;
   
-  export const Head = () => <title>Baggart</title>
+  //export const Head = () => <title>Baggart</title>

@@ -20,7 +20,7 @@ const Contexted = () =>{
             <div className="meta">
                 <p className="meta_title">{it.name}</p>
                 <p className="meta_detail">S | Marque</p>
-                <p className="meta_detail">Quantité : {quantity}</p>
+                <p className="meta_detail">X {quantity}</p>
             </div>
            
             <div>

@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <>
             <div id="logo">
-                <h1>La BaggArt</h1>
+                <h1>La gestu'</h1>
             </div>
             <UserNavBar/>
         </>
