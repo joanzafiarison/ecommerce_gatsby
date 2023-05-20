@@ -11,8 +11,7 @@ async function getProducts () {
                           'Authorization' : `Bearer ${process.env.PRINTFUL_API_KEY}`
                       }
                   })
-              .then(res => res.data)
-              .catch(console.log)
+                  .then(res => res.data)
 } 
 // Implement the Gatsby API “onCreatePage”. This is
 // called after every page is created.
@@ -31,7 +30,7 @@ exports.onCreatePage = async ({ page, actions }) => {
     }
 
     if( page.path.match(/^\/test/)) {
-      let products = getProducts().then(console.log)
+      let products = await getProducts();
       console.log("products ",products)
       page.matchPath = "/test"
       console.log("create test page");

@@ -12,8 +12,6 @@ async function getProducts () {
                             'Authorization' : `Bearer ${process.env.PRINTFUL_API_KEY}`
                         }
                     })
-                .then(res => res.data)
-                .catch(console.log)
 } 
 
 export {getProducts}
