@@ -15,17 +15,12 @@ const pageStyles = {
 }
 
 const IndexPage = () => {
-  const [overlay,setOverlay] = React.useState(false);
-  const [checkout, setCheckout] = React.useState([]);
-  const [size,setSize] = React.useState("XS");
   //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
   // on set le context
   return (
-    <checkout_context.Provider value={ checkout, setCheckout, overlay, setOverlay,  size, setSize}>
       <main style={{...pageStyles}}>
             <AppRouter/>
       </main>
-    </checkout_context.Provider>
   )
 }
 //<Home/>

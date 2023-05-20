@@ -16,6 +16,9 @@ const pageStyles = {
 
 
 const App = () => {
+  const [overlay,setOverlay] = React.useState(false);
+  const [checkout, setCheckout] = React.useState([]);
+  const [size,setSize] = React.useState("XS");
     /*
     const [overlay,setOverlay] = React.useState(false);
     const [checkout, setCheckout] = React.useState([]);
@@ -23,7 +26,8 @@ const App = () => {
     //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
     // on set le context
     return (
-      <Layout>
+     <checkout_context.Provider value={ checkout, setCheckout, overlay, setOverlay,  size, setSize}>
+        <Layout>
           <Router>
             <Home path="/"/>
             <Login path="/app/login"/>
@@ -31,7 +35,8 @@ const App = () => {
             <PrivateRoute path="/app/profile" component={Profile}/>
             <Payment path="/app/payment"/>
           </Router>
-      </Layout>
+        </Layout>
+      </checkout_context.Provider>
     )
   }
   //

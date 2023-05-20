@@ -1,11 +1,12 @@
 import React from "react";
 
 
-const TestPage = ({ pageContext: { data } }) => {
+const TestPage = ({ pageContext: { products } }) => {
+    console.log("products",products)
     return(
         <div>
             <h1>TEST</h1>
-            <p>{data.name}</p>
+            <p>...</p>
         </div>
     )
 }
