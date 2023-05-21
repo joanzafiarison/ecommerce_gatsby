@@ -4,4 +4,15 @@ import React , {createContext} from "react";
 
 const checkout_context = createContext();
 
-export {checkout_context}
+const CheckoutProvider = ({children}) =>{
+    const [overlay, setOverlay] = React.useState(false);
+    const [checkout, setCheckout] = React.useState([]);
+    const [size,setSize] = React.useState("XS");
+    return (
+        <checkout_context.Provider value={[checkout, setCheckout, overlay, setOverlay,  size, setSize]}>
+            {children}
+        </checkout_context.Provider>
+    )
+
+}
+export {checkout_context, CheckoutProvider}

@@ -6,7 +6,7 @@ import Contexted from "../components/CheckoutContent.js";
 import cart_img from "../images/cart.png";
 
 const Checkout = () =>{
-    const {checkout, overlay, setOverlay} = useContext(checkout_context);
+    const [checkout, overlay, setOverlay] = useContext(checkout_context);
     return <div className="checkout">  
         <div style={{display:"block",backgroundColor:"#1B1A20",position:"fixed",height :overlay? "100%":"auto",right:0,top:0,width: overlay? 450 :"auto",color:"white"}}>
         <figure onClick={()=>setOverlay(!overlay)} style={{margin : 0, padding :"0.2em"}}><img src={cart_img} alt="cart"/></figure>

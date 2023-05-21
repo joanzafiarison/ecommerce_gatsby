@@ -1,4 +1,4 @@
-import React , {useEffect} from "react";
+import React , {useEffect, useContext} from "react";
 import SizeSwitcher from "../components/SizeSwitcher";
 import Checkout from "../components/Checkout";
 import Product from "../components/Product";
@@ -52,6 +52,8 @@ function generateProduct(){
 ]
 
 const Home = () => {
+    const ctx = useContext(checkout_context); 
+    console.log("context ",ctx);
     //const [overlay,setOverlay] = React.useState(false);
     const [products,setProducts] = React.useState(generateProduct());
     const [featuredProducts, setFeaturedProducts] = React.useState([]);
@@ -64,7 +66,7 @@ const Home = () => {
     },[])
    
     return(
-        <checkout_context.Provider>
+        <>
                 <div id="hero">
                     { featuredProducts.map( fp => (
                         <HeroProduct name={fp.name} key={fp.id} img={fp.img}/>
@@ -89,7 +91,7 @@ const Home = () => {
                     </div>
                     <Checkout/>
                 </div>
-        </checkout_context.Provider>
+        </>
     )
 }
 

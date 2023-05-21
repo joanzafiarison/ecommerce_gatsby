@@ -7,7 +7,7 @@ import Login from "../app/login.js";
 import Command from "../app/Command.js";
 import Payment from "../app/Payment.js";
 import PrivateRoute from "../components/PrivateRoute.js";
-import {checkout_context} from '../services/context.js';
+import {checkout_context, CheckoutProvider} from '../services/context.js';
 
 const pageStyles = {
     padding: 96,
@@ -16,9 +16,7 @@ const pageStyles = {
 
 
 const App = () => {
-  const [overlay,setOverlay] = React.useState(false);
-  const [checkout, setCheckout] = React.useState([]);
-  const [size,setSize] = React.useState("XS");
+  
     /*
     const [overlay,setOverlay] = React.useState(false);
     const [checkout, setCheckout] = React.useState([]);
@@ -26,7 +24,7 @@ const App = () => {
     //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
     // on set le context
     return (
-     <checkout_context.Provider value={ checkout, setCheckout, overlay, setOverlay,  size, setSize}>
+     <CheckoutProvider>
         <Layout>
           <Router>
             <Home path="/"/>
@@ -36,7 +34,7 @@ const App = () => {
             <Payment path="/app/payment"/>
           </Router>
         </Layout>
-      </checkout_context.Provider>
+      </CheckoutProvider>
     )
   }
   //

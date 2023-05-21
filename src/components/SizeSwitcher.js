@@ -9,7 +9,7 @@ let colors = {
 const sizes = ["XS","S","M","L","XL"];
 
 const SizeSwitcher = () =>{
-    const {size, setSize} = useContext(checkout_context);
+    const [size, setSize] = useContext(checkout_context);
     return <div className="size_box">
         <h2>Tailles:</h2>
         <div className="sizes" >
