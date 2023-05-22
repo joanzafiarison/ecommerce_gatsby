@@ -1,7 +1,8 @@
 import React, {useState, useContext} from "react";
-import { checkout_context } from "../services/context";
-
-
+import { checkout_context, CheckoutProvider , payment_context} from "../services/context";
+import PaymentProcess from "../components/payment/PaymentProcess.js";
+import CommandProcess from "../components/payment/CommandProcess";
+import DeliveryProcess from "../components/payment/DeliveryProcess";
 
 const product_test = [
     {
@@ -16,98 +17,30 @@ const product_test = [
     }
 ]
 
-const relay = [
-    {
-        "name":"point relais",
-        "lat":76.55,
-        "lng":173.55
-    },
-    {
-        "name":"point relais",
-        "lat":76.55,
-        "lng":173.55
+
+
+const PaymentSwitcher = ({step, products}) =>  {
+    const ctx = useContext(payment_context);
+    console.log(ctx)
+    console.log("step",step)
+    function renderComponent (step){
+        switch(step){
+            case "commande" :
+                return <CommandProcess products={products}/>
+            case "livraison":
+                return <DeliveryProcess/>
+            case "paiement":
+                return <PaymentProcess/>
+            default :
+                <p>Pas d'élément</p>
+        }
     }
-]
-
-
-const CommandProcess = ({date, products, id}) => {
     return(
-        <div>
-            <h2>Commande #{id}</h2>
-            <p>{date}</p>
-            <p>Récapitulatif de la commande</p>
-            {products.map(el=>(
-                <div className="item">
-                    <p>{el.name}</p>
-                    <p>{el.price} $</p>
-                    <p>quantité {el.quantity}</p>
-                </div>
-            ))}
-            <p>Total : {products.map(el=>el.price * el.quantity).reduce((acc, value)=> acc + value)} $</p>
-        </div>
+        <>
+            {renderComponent(step)}
+        </>
     )
 }
-
-const CheckoutProcess = () => {
-    return(
-        <div>
-            <form>
-                <label>
-                    Adresse : 
-                    <input type="text" name="adress"/>
-                </label>
-                <label>
-                    Code Postal : 
-                    <input type="text" name="postal"/>
-                </label>
-                <label>
-                    Ville : 
-                    <input type="text" name="city"/>
-                </label>
-                <label>
-                    Point : 
-                    <select>
-                        {relay.map(pt => (
-                            <option value={pt.name}>{pt.name}</option>
-                        ))
-
-                        }
-                    </select>
-                </label>
-            </form>
-        </div>
-    )
-}
-
-
-const PaymentProcess = () => {
-    return(
-        <div>
-            <form>
-                <label>
-                    Carte : 
-                    <select>
-                        <option value="visa">Visa</option>
-                        <option value="masterCard">MasterCard</option>
-                    </select>
-                </label>
-                <label>
-                    Numéro : 
-                    <input type="text" name="number"/>
-                </label>
-                <label>
-                    Expiration : 
-                    <input type="text" name="number"/>
-                </label>
-                <label>
-                    Code secret : 
-                    <input type="text" name="number"/>
-                </label>
-            </form>
-        </div>
-    )
-}
-
 const processes = [
     {
         "name":"commande",
@@ -115,27 +48,25 @@ const processes = [
     },
     {
         "name":"livraison",
-        "component":<CheckoutProcess/>
+        "component":<DeliveryProcess/>
     },
     {
         "name":"paiement",
         "component":<PaymentProcess/>
     }
 ];
-const PaymentPage = () => {
+const PaymentPage = ({location}) => {
     const [step,setStep] = useState(0);
-    const [deliveryInfo, setDeliveryInfo] = useState({})
-    const [checkoutContent, setCheckoutContent] = useState({})
-    const [cardInfo, setCardInfo] = useState({})
+    const [products, setProducts] = useState(location.state.checkout)
     const ctx= useContext(checkout_context);
-    console.log("context checkout",ctx)
-    console.log(deliveryInfo,checkoutContent,cardInfo)
+    console.log("state ",products)
     function changeStep(step){
         if(step < processes.length && step >= 0){
             setStep(step)
         }
     }
-    return <div>
+    return (
+    <div>
         <h1>Paiement</h1>
         <div className="payment_process">
             <div className="stepSwitcher" style={{display:"flex",width:"100%",justifyContent:"space-around"}}>
@@ -147,13 +78,16 @@ const PaymentPage = () => {
                 ))}
             </div>
             <div style={{width:300, margin:" 4em auto", boxShadow:"1px 1px 4px grey", padding:"2em"}}>
-                {processes[step].component}
-                <button onClick={()=>changeStep(step-1)}>Précédent</button>
-                <button onClick={()=>changeStep(step+1)}>Confirmer</button>
+                <payment_context.Provider >
+                    <PaymentSwitcher step={processes[step].name} products={products}/>
+                    <button onClick={()=>changeStep(step-1)}>Précédent</button>
+                    <button onClick={()=>changeStep(step+1)}>Confirmer</button>
+                </payment_context.Provider>
             </div>
             
         </div>
     </div>
+    )
 }
 
 export default PaymentPage;

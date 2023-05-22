@@ -1,5 +1,6 @@
 import React from "react";
 import {Router} from "@reach/router";
+import {StaticRouter} from "react-router";
 import Layout from "../components/Layout.js";
 import Home from "../app/Home.js";
 import Profile from "../app/Profile.js";

@@ -3,7 +3,7 @@ import { checkout_context } from "../services/context";
 
 
 const Contexted = () =>{
-    const [checkout, setCheckout] = useContext(checkout_context);
+    const {checkout, setCheckout} = useContext(checkout_context);
     const [quantity, setQuantity] = useState(1);
   
     function remove_(i){
