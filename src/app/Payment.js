@@ -58,7 +58,7 @@ const processes = [
 const PaymentPage = ({location}) => {
     const [step,setStep] = useState(0);
     const [products, setProducts] = useState(location.state.checkout)
-    const ctx= useContext(checkout_context);
+    console.log("location ", location);
     console.log("state ",products)
     function changeStep(step){
         if(step < processes.length && step >= 0){

@@ -8,6 +8,7 @@ import Login from "../app/login.js";
 import Command from "../app/Command.js";
 import Payment from "../app/Payment.js";
 import PrivateRoute from "../components/PrivateRoute.js";
+import Test from "../app/Test.js";
 import {checkout_context, CheckoutProvider} from '../services/context.js';
 
 const pageStyles = {

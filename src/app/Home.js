@@ -51,9 +51,10 @@ function generateProduct(){
     }
 ]
 
-const Home = () => {
+const Home = ({location}) => {
     const ctx = useContext(checkout_context); 
     console.log("context ",ctx);
+    console.log('location', location)
     //const [overlay,setOverlay] = React.useState(false);
     const [products,setProducts] = React.useState(generateProduct());
     const [featuredProducts, setFeaturedProducts] = React.useState([]);

@@ -1,8 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import Layout from "../components/Layout";
 
-
 const News = () => {
+    
     return(
         <Layout>
             <div style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"2em", boxShadow:"2px 1px 4px grey"}}>

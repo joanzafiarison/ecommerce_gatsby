@@ -1,9 +1,11 @@
 import React, {useContext} from "react";
 import {checkout_context} from "../services/context";
+import {getProducts, setProducts} from "../services/checkout";
 
 
 const Product = ({name, price}) =>{
     const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
+    console.log("current product ", getProducts());
     function addProduct(name, price) {
       let newData = [...checkout];
       console.log(`${name} ajouté, cela coûte ${price} euros`)
@@ -19,6 +21,9 @@ const Product = ({name, price}) =>{
         newData = [...checkout, {"name" : name, "price" : price, quantity:1}];  
 
       }
+      setProducts({
+        "products": newData
+      });
       setCheckout(newData);
       setOverlay(true);
     }
