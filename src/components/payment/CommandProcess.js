@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
+import { payment_context } from "../../services/context";
 
 const CommandProcess = ({products}) => {
+    const ctx = useContext(payment_context);
+    console.log("deliv ctx", ctx)
     const date = new Date().toDateString();//.now().toString()
     const id = Math.round(Math.random()*1000)
     console.log("products ",products);

@@ -1,5 +1,5 @@
 import React, {useState, useContext} from "react";
-import { checkout_context, CheckoutProvider , payment_context} from "../services/context";
+import { checkout_context, CheckoutProvider , payment_context, PaymentProvider} from "../services/context";
 import PaymentProcess from "../components/payment/PaymentProcess.js";
 import CommandProcess from "../components/payment/CommandProcess";
 import DeliveryProcess from "../components/payment/DeliveryProcess";
@@ -78,11 +78,11 @@ const PaymentPage = ({location}) => {
                 ))}
             </div>
             <div style={{width:300, margin:" 4em auto", boxShadow:"1px 1px 4px grey", padding:"2em"}}>
-                <payment_context.Provider >
+                <PaymentProvider>
                     <PaymentSwitcher step={processes[step].name} products={products}/>
                     <button onClick={()=>changeStep(step-1)}>Précédent</button>
                     <button onClick={()=>changeStep(step+1)}>Confirmer</button>
-                </payment_context.Provider>
+                </PaymentProvider>
             </div>
             
         </div>

@@ -5,20 +5,22 @@ import {checkout_context} from "../services/context";
 const Product = ({name, price}) =>{
     const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
     function addProduct(name, price) {
-      const newData = [...checkout];
+      let newData = [...checkout];
       console.log(`${name} ajouté, cela coûte ${price} euros`)
       //if product existe deja on ajoute + 1
-      let isNew = checkout.findIndex(el => el.name !== name && el.price !==price);
-      if( isNew == -1){
-        setCheckout([...checkout, {"name" : name, "price" : price, quantity:1}]);
-        setOverlay(true);
-      }
-      else{
+      let isNew = checkout.findIndex(el => el.name === name && el.price ===price);
+      
+      if( isNew !== -1){
         const modifiedData = checkout[isNew];
         modifiedData.quantity +=1;
-        newData[isNew] = modifiedData;
-        setCheckout(newData); 
+        newData[isNew] = modifiedData; 
       }
+      else{
+        newData = [...checkout, {"name" : name, "price" : price, quantity:1}];  
+
+      }
+      setCheckout(newData);
+      setOverlay(true);
     }
     return(
     <div className="product">

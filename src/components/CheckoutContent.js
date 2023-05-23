@@ -10,6 +10,14 @@ const Contexted = () =>{
       setCheckout(checkout.filter((v,k)=> k!==i));
   
     }
+
+    function updateQuantity(i,nb){
+      let newData = [...checkout];
+      if(newData[i].quantity >= 0){
+        newData[i].quantity = nb;
+        setCheckout(newData);
+      }
+    }
   
     return (
       <>
@@ -20,15 +28,15 @@ const Contexted = () =>{
             <div className="meta">
                 <p className="meta_title">{it.name}</p>
                 <p className="meta_detail">S | Marque</p>
-                <p className="meta_detail">X {quantity}</p>
+                <p className="meta_detail">X {it.quantity}</p>
             </div>
            
             <div>
                 <button onClick={()=>remove_(i)}>X</button>
-                <p>{it.price} $</p>
+                <p>{parseFloat(it.price)} $</p>
                 <div style={{display: "flex"}}>
-                    <button onClick={()=>setQuantity(quantity+1)}>+</button>
-                    <button onClick={()=>setQuantity(quantity > 0 ? quantity-1 : quantity)}>-</button>
+                    <button onClick={()=>updateQuantity(i, checkout[i].quantity + 1)}>+</button>
+                    <button onClick={()=>updateQuantity(i, checkout[i].quantity -1)}>-</button>
                 </div>
 
             </div>

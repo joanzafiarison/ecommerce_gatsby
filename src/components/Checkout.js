@@ -22,7 +22,7 @@ const Checkout = () =>{
             <div style={{backgroundColor:"#1B1A20", bottom :0, right:0, position:"absolute",width:"100%",display:"flex",flexDirection:"column",alignItems:"center",marginBottom:"5px"}}>
                 <div>
                     <p>Sous total</p>
-                    <p> {checkout.map(el=>el.price).reduce((acc, current)=> parseInt(acc) + parseInt(current), 0)}$</p>
+                    <p> {checkout.map(el=> parseFloat(el.price) * parseFloat(el.quantity)).reduce((acc, current)=> parseInt(acc) + parseInt(current), 0)}$</p>
                 </div>
                 <button><Link to="/app/payment" state={{checkout}}>Commander</Link></button>
             </div>
