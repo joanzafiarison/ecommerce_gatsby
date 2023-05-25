@@ -1,6 +1,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Ecommerce_gatsby`,
@@ -16,5 +18,13 @@ module.exports = {
     },
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
+    {
+      resolve : "gatsby-source-stripe",
+      options : {
+        objects: ["Price"],
+        secretKey: process.env.STRIPE_PRIVATE,
+        downloadFiles: false,
+      }
+    }
 ]
 };

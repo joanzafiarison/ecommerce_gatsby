@@ -7,16 +7,18 @@ import Profile from "../app/Profile.js";
 import Login from "../app/login.js";
 import Command from "../app/Command.js";
 import Payment from "../app/Payment.js";
+import PaymentSuccess from "../app/PaymentSuccess.js"; 
+import PaymentFailed from "../app/PaymentFailed.js"; 
 import PrivateRoute from "../components/PrivateRoute.js";
 import Test from "../app/Test.js";
 import {checkout_context, CheckoutProvider} from '../services/context.js';
 
 const pageStyles = {
     padding: 96,
-    //fontFamily: "-apple-system, Roboto, sans-serif, serif",
+    //fontFamily: "-apple-system, Roboto,  sans-serif, serif",
   }
 
-
+  
 const App = () => {
   
     /*
@@ -34,6 +36,8 @@ const App = () => {
             <PrivateRoute path="/app/command" component={Command}/>
             <PrivateRoute path="/app/profile" component={Profile}/>
             <Payment path="/app/payment"/>
+            <PaymentSuccess path="/app/payment/success"/>
+            <PaymentFailed path="/app/payment/failed"/>
           </Router>
         </Layout>
       </CheckoutProvider>

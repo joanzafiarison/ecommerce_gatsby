@@ -41,25 +41,12 @@ const PaymentSwitcher = ({step, products}) =>  {
         </>
     )
 }
-const processes = [
-    {
-        "name":"commande",
-        "component":<CommandProcess id="974"date="17/05/23" products={product_test}/>
-    },
-    {
-        "name":"livraison",
-        "component":<DeliveryProcess/>
-    },
-    {
-        "name":"paiement",
-        "component":<PaymentProcess/>
-    }
-];
+const processes = [ "commande", "livraison", "paiement"];
 const PaymentPage = ({location}) => {
     const [step,setStep] = useState(0);
-    const [products, setProducts] = useState(location.state.checkout)
+    const { checkout } = useContext(checkout_context);
     console.log("location ", location);
-    console.log("state ",products)
+    console.log("state ",checkout)
     function changeStep(step){
         if(step < processes.length && step >= 0){
             setStep(step)
@@ -72,14 +59,14 @@ const PaymentPage = ({location}) => {
             <div className="stepSwitcher" style={{display:"flex",width:"100%",justifyContent:"space-around"}}>
                 {processes.map((process,i) => (
                     <div key={i} style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                        <h2>{i+1} - {processes[i].name}</h2>
+                        <h2>{i+1} - {process}</h2>
                         <div className="bullet" style={{backgroundColor : i === step ? "red" : ""}}></div>
                     </div>
                 ))}
             </div>
             <div style={{width:300, margin:" 4em auto", boxShadow:"1px 1px 4px grey", padding:"2em"}}>
                 <PaymentProvider>
-                    <PaymentSwitcher step={processes[step].name} products={products}/>
+                    <PaymentSwitcher step={processes[step]} products={checkout}/>
                     <button onClick={()=>changeStep(step-1)}>Précédent</button>
                     <button onClick={()=>changeStep(step+1)}>Confirmer</button>
                 </PaymentProvider>

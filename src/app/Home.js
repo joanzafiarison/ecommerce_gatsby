@@ -2,11 +2,14 @@ import React , {useEffect, useContext} from "react";
 import SizeSwitcher from "../components/SizeSwitcher";
 import Checkout from "../components/Checkout";
 import Product from "../components/Product";
+import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
 import {checkout_context} from '../services/context.js';
 import t_shirt_img from "../images/t-shirt.png";
 import rash_img from "../images/rash1.webp";
 
+
+//
 function generateProduct(){
     let i =0; 
     let id =42;
@@ -88,6 +91,10 @@ const Home = ({location}) => {
                         {products.map(el=>(
                             <Product key={el.id} price={el.price} name={el.name}/>
                         ))}
+                    </div>
+                    <div>
+                        <h2>Produits Stripe</h2>
+                        <Products/>
                     </div>
                     </div>
                     <Checkout/>

@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {checkout_context} from "../services/context";
 import {getProducts, setProducts} from "../services/checkout";
 
-
+//CheckoutPaiement?
 const Product = ({name, price}) =>{
     const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
     console.log("current product ", getProducts());

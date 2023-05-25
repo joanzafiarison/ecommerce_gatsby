@@ -1,5 +1,6 @@
 import React, {useState, useContext} from "react";
 import { payment_context } from "../../services/context";
+import { process_payment } from "../../services/payment";
 
 const cardTypes = ["visa","mastercard"];
 
@@ -34,9 +35,10 @@ const PaymentProcess = () => {
                     Code secret : 
                     <input type="text" name="secret_number" onChange={handleValue}/>
                 </label>
+                < input type="submit" value="valider"/>
             </form>
         </div>
-    )
+    ) 
 }
 
 export default PaymentProcess;

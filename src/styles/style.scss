@@ -169,10 +169,11 @@ input[type="submit"] {
     //align-items: center;
     text-align : center;
     margin:10px;
+    max-width: 200px;
 }
 
 .product_image {
-    width: 100%;//calc(100vw/7); 
+    width: 100%;//calc(100vw/7);
     height: calc(100vh/4);
     background-color: grey;
     @media screen and (max-width:768px){
@@ -262,6 +263,13 @@ input[type="submit"] {
     height:20px;
     background-color: $second-color;
     border-radius: 100%;
+}
+
+.notification{
+    width:300px;
+    height:300px;
+    box-shadow: 1px 1px 1px grey;
+    margin: 1em auto;
 }
 
 /**/
