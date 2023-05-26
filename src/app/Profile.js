@@ -4,7 +4,7 @@ import {getUser} from "../services/auth.js";
 
 const ProfilePage = () => {
     // récupération des infos
-    const [userData, setUserData] = useState(getUser());
+    const [userData, setUserData] = useState({});
     const [currentDatas, setCurrentDatas] = useState([]);
     //console.log("profile data",userData)
     function handleSubmit(e){
@@ -26,9 +26,14 @@ const ProfilePage = () => {
         }
         
     }
+
+    useEffect(()=>{
+        setUserData(getUser())
+    },[])
     return(
         <div style={{margin:"3em", display:"flex", flexDirection:"column", alignItems:"center", width:"40%"}}>
             <h1>Information sur l'utilisateur </h1>
+            {userData !== {} ?
             <form onSubmit={handleSubmit}>
                 <label> 
                     Identifiants :
@@ -41,7 +46,10 @@ const ProfilePage = () => {
                     <button onClick={()=> modifyData("email")}>Changer</button>
                 </label>
             </form> 
+                    : null
+            }
             <button style={{width:150}}>Changer le mot de passe</button>
+
         </div>
     )
 }

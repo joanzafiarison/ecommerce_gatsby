@@ -1,18 +1,22 @@
+export const isBrowser = () => typeof window !== "undefined";
 
-function getProducts(){
-    return window.localStorage.getItem("ecom_products");
+export const getProducts = () => {
+    isBrowser() && window.localStorage.getItem("ecom_products") ?
+        window.localStorage.getItem("ecom_products")
+        : {}
+}
+
+export const handleProducts = ({products}) => {
+    setProducts(products);
+}
+
+export const clearCheckout = () => {
+    setProducts({})
 }
 
 function setProducts(data){
     window.localStorage.setItem("ecom_products",JSON.stringify(data))
 }
 
-function clearData(){
-    window.localStorage.setItem("ecom_products",{});
-}
 
-export {
-    getProducts,
-    setProducts,
-    clearData
-}
+

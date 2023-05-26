@@ -1,4 +1,4 @@
-import React , {createContext} from "react";
+import React , {useEffect, createContext} from "react";
 import { getProducts } from "../services/checkout";
 
 //avec typescript pour mettre en place un meilleur controle du context 
@@ -8,9 +8,12 @@ const payment_context = createContext();
 
 const CheckoutProvider = ({children}) =>{
     const [overlay, setOverlay] = React.useState(false);
-    const [checkout, setCheckout] = React.useState(JSON.parse(getProducts())["products"]);
+    const [checkout, setCheckout] = React.useState([]);
     const [size,setSize] = React.useState("XS");
-    console.log(JSON.parse(getProducts())["products"])
+    useEffect(()=>{
+        setCheckout(JSON.parse(getProducts())["products"]);
+        console.log(checkout);
+    },[]);
     return (
         <checkout_context.Provider value={{checkout, setCheckout, overlay, setOverlay,  size, setSize}}>
             {children}

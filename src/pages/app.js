@@ -10,7 +10,6 @@ import Payment from "../app/Payment.js";
 import PaymentSuccess from "../app/PaymentSuccess.js"; 
 import PaymentFailed from "../app/PaymentFailed.js"; 
 import PrivateRoute from "../components/PrivateRoute.js";
-import Test from "../app/Test.js";
 import {checkout_context, CheckoutProvider} from '../services/context.js';
 
 const pageStyles = {

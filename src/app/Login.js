@@ -29,12 +29,15 @@ const LoginPage =  () => {
     }
 
     //redirection a profile si connecté
-    if( isLoggedIn() ){
-        navigate('/app/profile')
-    }
-    else{
-        console.log("mauvais identiffiants")
-    }
+    useEffect(()=>{
+        if( isLoggedIn() ){
+            navigate('/app/profile')
+        }
+        else{
+            console.log("mauvais identiffiants")
+        }
+    
+    },[])
 
     return (
         <div>
