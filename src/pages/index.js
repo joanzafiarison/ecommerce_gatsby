@@ -1,8 +1,5 @@
 import React from "react";
-import Layout from "../components/Layout.js";
-import Home from "../app/Home.js";
 import AppRouter from "./app.js";
-import { checkout_context } from "../services/context.js";
 
 
 import "../styles/style.scss";

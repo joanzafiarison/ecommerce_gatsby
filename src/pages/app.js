@@ -4,7 +4,7 @@ import {StaticRouter} from "react-router";
 import Layout from "../components/Layout.js";
 import Home from "../app/Home.js";
 import Profile from "../app/Profile.js";
-import Login from "../app/login.js";
+import Login from "../app/Login.js";
 import Command from "../app/Command.js";
 import Payment from "../app/Payment.js";
 import PaymentSuccess from "../app/PaymentSuccess.js"; 
