@@ -56,6 +56,7 @@ function generateProduct(){
 
 const Home = ({location}) => {
     const ctx = useContext(checkout_context); 
+    const display = false;
     console.log("context ",ctx);
     console.log('location', location)
     //const [overlay,setOverlay] = React.useState(false);
@@ -63,7 +64,7 @@ const Home = ({location}) => {
     const [featuredProducts, setFeaturedProducts] = React.useState([]);
     //const [size,setSize] = React.useState("XS");
     //const [checkout, setCheckout] = React.useState([]);
-
+    
     useEffect(() => {
         //kind of api call
         setFeaturedProducts(featured_products_);
@@ -71,6 +72,7 @@ const Home = ({location}) => {
    
     return(
         <>
+
                 <div id="hero">
                     { featuredProducts.map( fp => (
                         <HeroProduct name={fp.name} key={fp.id} img={fp.img}/>
@@ -97,8 +99,9 @@ const Home = ({location}) => {
                         <Products/>
                     </div>
                     </div>
-                    <Checkout/>
+                    <Checkout/> 
                 </div>
+ 
         </>
     )
 }

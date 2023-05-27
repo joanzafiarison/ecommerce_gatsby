@@ -1,10 +1,10 @@
 export const isBrowser = () => typeof window !== "undefined";
 
-export const getProducts = () => {
+export const getProducts = () => 
     isBrowser() && window.localStorage.getItem("ecom_products") ?
-        window.localStorage.getItem("ecom_products")
-        : {}
-}
+        JSON.parse(window.localStorage.getItem("ecom_products"))
+        : []
+
 
 export const handleProducts = ({products}) => {
     setProducts(products);

@@ -11,8 +11,10 @@ const CheckoutProvider = ({children}) =>{
     const [checkout, setCheckout] = React.useState([]);
     const [size,setSize] = React.useState("XS");
     useEffect(()=>{
-        setCheckout(JSON.parse(getProducts())["products"]);
+        console.log("products",getProducts())
+        setCheckout(getProducts());
         console.log(checkout);
+        console.log("in use effect")
     },[]);
     return (
         <checkout_context.Provider value={{checkout, setCheckout, overlay, setOverlay,  size, setSize}}>

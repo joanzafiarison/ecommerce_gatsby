@@ -60,3 +60,8 @@ Uses Context to handle Checkout...
 3) Assign a value
 4) Use value, with ctx = useContext(MyContext)
 5) You can then access value with ctx.a or ctx.b
+
+
+
+
+#error 425 / 423

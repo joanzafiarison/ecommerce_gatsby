@@ -32,7 +32,7 @@ const Contexted = () =>{
            
             <div>
                 <button onClick={()=>remove_(i)}>X</button>
-                <p>{parseFloat(it.price)} $</p>
+                <p>{it.price} $</p>
                 <div style={{display: "flex"}}>
                     <button onClick={()=>updateQuantity(i, checkout[i].quantity + 1)}>+</button>
                     <button onClick={()=>updateQuantity(i, checkout[i].quantity -1)}>-</button>

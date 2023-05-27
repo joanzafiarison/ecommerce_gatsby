@@ -1,5 +1,6 @@
-import React, {useState, useContext} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { checkout_context, CheckoutProvider , payment_context, PaymentProvider} from "../services/context";
+import {getProducts } from "../services/checkout";
 import PaymentProcess from "../components/payment/PaymentProcess.js";
 import CommandProcess from "../components/payment/CommandProcess";
 import DeliveryProcess from "../components/payment/DeliveryProcess";
@@ -21,7 +22,9 @@ const product_test = [
 
 const PaymentSwitcher = ({step, products}) =>  {
     const ctx = useContext(payment_context);
+    const ctx2 = useContext(checkout_context);
     console.log(ctx)
+    console.log("checkout context",ctx2)
     console.log("step",step)
     function renderComponent (step){
         switch(step){
@@ -44,14 +47,16 @@ const PaymentSwitcher = ({step, products}) =>  {
 const processes = [ "commande", "livraison", "paiement"];
 const PaymentPage = ({location}) => {
     const [step,setStep] = useState(0);
-    const { checkout } = useContext(checkout_context);
-    console.log("location ", location);
-    console.log("state ",checkout)
+    //const { checkout } = useContext(checkout_context);
+    const [checkout, setCheckout] = useState([]);
     function changeStep(step){
         if(step < processes.length && step >= 0){
             setStep(step)
         }
     }
+    useEffect(()=>{
+        setCheckout(getProducts());
+    },[])
     return (
     <div>
         <h1>Paiement</h1>

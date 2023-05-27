@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 import { HandleLogin, isLoggedIn } from "../services/auth";
 import { navigate } from "gatsby";
 

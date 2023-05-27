@@ -24,7 +24,9 @@ const Product = ({name, price}) =>{
       handleProducts({
         "products": newData
       });
+      console.log("get items", window.localStorage.getItem("ecom_products"))
       setCheckout(newData);
+      console.log("checkout products",checkout)
       setOverlay(true);
     }
     return(
