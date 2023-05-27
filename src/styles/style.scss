@@ -48,6 +48,12 @@ li {
     justify-content: flex-end;
     align-items: end;
     margin:4em auto;
+    color:white;
+    @media screen and (max-width:768px){
+        margin : 2em auto;
+        height:31vh;
+       
+    }
 }
 
 .hero_title {
@@ -84,7 +90,7 @@ nav > ul> li > a:hover {
 /*INPUT */
 
 #search {
-    width:30%;
+    width:100%;
 }
 
 form {
@@ -121,6 +127,7 @@ input[type="submit"] {
     width : 15vw;
     @media screen and (max-width:1025px){
         margin : auto;
+        width:100%;
     }
 }
 
@@ -177,14 +184,18 @@ input[type="submit"] {
     height: calc(100vh/4);
     background-color: grey;
     @media screen and (max-width:768px){
-        height:328px;
+        height:196px;
+        width:163px;
     }
 }
 
 
 .product_name {
     font-size: $text-important;
-    font-weight :600
+    font-weight :600;
+    @media screen and (max-width:768px){
+        font-size:15px;
+    }
 }
 
 .price {

@@ -2,8 +2,9 @@ import React, {useContext,useState, useEffect} from "react";
 import { payment_context } from "../../services/context";
 import { process_payment } from "../../services/payment";
 
-const CommandProcess = ({products}) => {
+const CommandProcess = ({products,location}) => {
     const ctx = useContext(payment_context);
+    console.log("location",window.location)
     const [commandMeta, setCommandMeta] = useState({
         "id" : "",
         "date" : "",
@@ -26,7 +27,7 @@ const CommandProcess = ({products}) => {
         }
     },[])
     function processCheckout(){
-        process_payment(products); 
+        process_payment(products,window.location.origin); 
     }
     return(
         <div>
