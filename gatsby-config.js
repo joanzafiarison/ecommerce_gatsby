@@ -28,6 +28,18 @@ module.exports = {
         secretKey: process.env.STRIPE_PRIVATE,
         downloadFiles: false,
       }
+    },
+    {
+      resolve : "gatsby-plugin-google-gtag",
+      options : {
+        trackingIds :[
+           process.env.GOOGLE_ANALYTICS
+        ],
+        pluginConfig : {
+          //put google tag in head
+          head : true,
+        }
+      }
     }
 ]
 };
