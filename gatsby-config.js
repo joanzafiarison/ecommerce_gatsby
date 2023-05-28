@@ -33,7 +33,7 @@ module.exports = {
       resolve : "gatsby-plugin-google-gtag",
       options : {
         trackingIds :[
-           process.env.GOOGLE_ANALYTICS
+           process.env.GOOGLE_ANALYTICS,
         ],
         pluginConfig : {
           //put google tag in head
