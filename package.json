@@ -27,6 +27,7 @@
     "gatsby-react-router-scroll": "^6.9.0",
     "gatsby-script": "^2.9.0",
     "gatsby-source-filesystem": "^5.9.0",
+    "gatsby-source-instagram-all": "^5.2.4",
     "gatsby-source-stripe": "^4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

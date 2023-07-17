@@ -4,6 +4,7 @@ $font-new : "Segoe UI", Roboto, Oxygen, sans-serif;
 $primary-color: #333;
 $second-color: #232129;
 $clear-grey:#ECECEC;
+$gold-yellow : rgb(234, 191, 0);
 $text-important : 24px; 
 $text-second : 18px; 
 $text-basic : 14px;
@@ -11,6 +12,7 @@ $text-mini: 11px;
 
 //typo
 //colors
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body {
   font: 100% $font-new;
@@ -22,13 +24,30 @@ li {
     list-style-type : none;
 }
 
+a {
+    text-decoration : none;
+    color : black;
+}
+
+a:hover {
+    color : $gold-yellow;
+}
+
+#logo h1 {
+    font-family: 'Press Start 2P';
+    margin: 4rem;
+    background: -webkit-linear-gradient(#e3e308, #0db144);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .search_button {
     width:30px;
 }
 
 .main_container {
     display:grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(5, 1fr);
     @media screen and (max-width:1025px){
         grid-template-columns: 1fr;
     }
@@ -90,7 +109,11 @@ nav > ul> li > a:hover {
 /*INPUT */
 
 #search {
-    width:100%;
+    width:40%;
+    margin: auto;
+    @media screen and (max-width : 800px){
+        width :80%;
+    }
 }
 
 form {
@@ -108,6 +131,7 @@ form > label {
 
 input[type="text"], input[type="password"] {
     border-width: 0px 0px 1px;
+    outline : none;
 }
 
 input[type="submit"] {
@@ -124,10 +148,11 @@ input[type="submit"] {
 }
 
 .size_box {
-    width : 15vw;
+    grid-column-start : 1;
+    margin: 2rem auto 2rem;
+    width: 50%;
     @media screen and (max-width:1025px){
-        margin : auto;
-        width:100%;
+        width :60%;
     }
 }
 
@@ -139,7 +164,6 @@ input[type="submit"] {
     margin-right:10px;
     @media screen and (max-width:1025px){
         flex-wrap: nowrap;
-        width:100%;
     }
 }
 
@@ -164,6 +188,7 @@ input[type="submit"] {
     display:grid; 
     width: 85%;
     grid-template-columns: repeat(4, 1fr);
+    margin : auto;
     @media screen and (max-width:1025px){
         grid-template-columns: repeat(3, 1fr);
     }
@@ -305,6 +330,7 @@ footer {
 
 .liens {
     display: flex;
+    justify-content: space-around;
 }
 
 
@@ -323,3 +349,54 @@ footer {
     display:flex;
 }
 
+
+footer {
+    padding: 2rem;
+}
+
+
+#grid_reseaux {
+    display: grid;   
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 80%;
+}   
+
+#grid_reseaux > figure {
+    min-height : 200px;
+}
+
+#grid_reseaux > figure:nth-child(1) {
+    grid-column-start : 1;
+    grid-column-end : 3;
+    grid-row-start : 1;
+    grid-row-end : 3;
+}
+
+
+#grid_reseaux > figure:nth-child(5) {
+    grid-column-start : 3;
+    grid-row-start : 2;
+}
+
+#grid_reseaux > figure:nth-child(6) {
+    grid-column-start : 1;
+    grid-row-start : 3;
+}
+
+#grid_reseaux > figure:nth-child(7) {
+    grid-column-start : 2;
+    grid-row-start : 3;
+}
+
+#grid_reseaux > figure:nth-child(8) {
+    grid-column-start : 3;
+    grid-row-start : 3;
+}
+
+#grid_reseaux > figure:nth-child(9) {
+    grid-column-start : 4;
+    grid-column-end : 6;
+    grid-row-start : 2;
+    grid-row-end : 4;
+}

@@ -81,8 +81,7 @@ const Home = ({location}) => {
                 </div>
                 <form id="search">
                     <label>
-                        Rechercher : 
-                        <input type="text" name="recherche" id="recherche"/>
+                        <input type="text" name="recherche" placeholder="Rechercher par nom..."id="recherche"/>
                         <button className="search_button"></button>
                     </label>
                 </form>

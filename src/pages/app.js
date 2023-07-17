@@ -12,10 +12,7 @@ import PaymentFailed from "../app/PaymentFailed.js";
 import PrivateRoute from "../components/PrivateRoute.js";
 import {checkout_context, CheckoutProvider} from '../services/context.js';
 
-const pageStyles = {
-    padding: 96,
-    //fontFamily: "-apple-system, Roboto,  sans-serif, serif",
-  }
+
 
   
 const App = () => {
