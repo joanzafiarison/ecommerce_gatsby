@@ -3,7 +3,7 @@ import {checkout_context} from "../services/context";
 import {getProducts, handleProducts} from "../services/checkout";
 
 //CheckoutPaiement?
-const Product = ({name, price}) =>{
+const Product = ({name, price, images, desc}) =>{
     const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
     //console.log("current product ", getProducts());
     function addProduct(name, price) {
@@ -32,6 +32,7 @@ const Product = ({name, price}) =>{
     return(
     <div className="product">
         <div className="product_image">
+          <img src={images} style={{width:"100%"}} alt={desc}/>
         </div>
         <p className="product_name">{name}</p>
         <p className="price">$ {price.split(".")[0]}.<span>{price.split(".")[1]}</span></p>

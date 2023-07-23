@@ -20,6 +20,8 @@ export default function Products (){
                             product {
                                 id
                                 name
+                                description
+                                images
                             }
                         }
                     }
@@ -33,6 +35,8 @@ export default function Products (){
                             key={price.id} 
                             name={price.product.name}
                             price='25.89'
+                            desc={price.product.description}
+                            images={price.product.images[0]}
                              />
                     ))}
                 </div>

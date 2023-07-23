@@ -11,9 +11,6 @@ const UserNavBar = () => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
                     <Link to="/app/profile">Profile</Link>
                 </li>
                 <li>

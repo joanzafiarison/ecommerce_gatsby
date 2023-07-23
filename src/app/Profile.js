@@ -31,7 +31,7 @@ const ProfilePage = () => {
         setUserData()
     },[])*/
     return(
-        <div style={{margin:"3em", display:"flex", flexDirection:"column", alignItems:"center", width:"40%"}}>
+        <div style={{margin:"2rem auto", display:"flex", flexDirection:"column", alignItems:"center", width:"40%"}}>
             <h1>Information sur l'utilisateur </h1>
             <form onSubmit={handleSubmit}>
                 <label> 

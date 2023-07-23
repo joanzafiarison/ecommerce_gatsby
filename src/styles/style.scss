@@ -36,6 +36,7 @@ a:hover {
 #logo h1 {
     font-family: 'Press Start 2P';
     margin: 4rem;
+    font-size: $text-second;
     background: -webkit-linear-gradient(#e3e308, #0db144);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -110,7 +111,7 @@ nav > ul> li > a:hover {
 
 #search {
     width:40%;
-    margin: auto;
+    margin: 5rem auto;
     @media screen and (max-width : 800px){
         width :80%;
     }
@@ -149,9 +150,10 @@ input[type="submit"] {
 
 .size_box {
     grid-column-start : 1;
+    grid-column-end : 3;
     margin: 2rem auto 2rem;
     width: 50%;
-    @media screen and (max-width:1025px){
+    @media screen and (max-width:875px){
         width :60%;
     }
 }
@@ -202,6 +204,13 @@ input[type="submit"] {
     text-align : center;
     margin:10px;
     max-width: 200px;
+    width: 9rem;
+    @media screen and ( max-width : 1000px){
+        width : 14rem;
+    }
+    @media screen and ( max-width : 875px){
+        width : 10rem;
+    }
 }
 
 .product_image {
@@ -210,7 +219,7 @@ input[type="submit"] {
     background-color: grey;
     @media screen and (max-width:768px){
         height:196px;
-        width:163px;
+        width:140px;
     }
 }
 
@@ -218,6 +227,7 @@ input[type="submit"] {
 .product_name {
     font-size: $text-important;
     font-weight :600;
+    font-size:16px;
     @media screen and (max-width:768px){
         font-size:15px;
     }
@@ -312,7 +322,7 @@ input[type="submit"] {
 
 .add_button {
     padding:5px;
-    width:calc(100vw/7); 
+    width:4rem; 
     background-color: $second-color;
     color :white;
     border :none;
@@ -376,6 +386,9 @@ footer {
     grid-column-end : 3;
     grid-row-start : 1;
     grid-row-end : 3;
+    @media screen and (max-width : 875px){
+        grid-column-end: 3;
+    }
 }
 
 #grid_reseaux > figure:nth-child(3) {
@@ -383,8 +396,8 @@ footer {
     grid-column-start: 4;
     grid-column-end: 5;
     @media screen and (max-width : 875px){
-        grid-row-start: 5;
-        grid-column-start: 2;
+        grid-row-start: 2;
+        grid-column-start: 3;
         grid-column-end: 4;
     
     }
@@ -394,6 +407,9 @@ footer {
 #grid_reseaux > figure:nth-child(5) {
     grid-column-start : 3;
     grid-row-start : 2;
+    @media screen and (max-width : 875px){
+        grid-column-start : 4;
+    }
 }
 
 #grid_reseaux > figure:nth-child(6) {
@@ -402,7 +418,8 @@ footer {
     @media screen and (max-width : 875px){
         grid-column-start: 1;
         grid-row-start: 3;
-        grid-row-end: 5;
+        grid-row-end: 4;
+        grid-column-end: 3;
     }
 }
 
@@ -410,9 +427,9 @@ footer {
     grid-column-start : 2;
     grid-row-start : 3;
     @media screen and (max-width : 875px){
-        grid-column-start: 2;
-        grid-column-end: 4;
-        grid-row-start: 3;
+        grid-column-start: 1;
+        grid-column-end: 6;
+        grid-row-start: 5;
         grid-row-end: 5;
     }
 }
@@ -421,8 +438,9 @@ footer {
     grid-column-start : 3;
     grid-row-start : 3;
     @media screen and (max-width : 875px){
-        grid-column-start: 1;
-        grid-row-start: 5;
+        grid-column-start: 3;
+        grid-column-end: 6;
+        grid-row-start: 4;
     }
 }
 
@@ -431,4 +449,9 @@ footer {
     grid-column-end : 6;
     grid-row-start : 2;
     grid-row-end : 4;
+    @media screen and (max-width : 875px){
+        grid-row-start: 3; 
+        grid-row-end : 4;
+        grid-column-start: 3;
+    }
 }

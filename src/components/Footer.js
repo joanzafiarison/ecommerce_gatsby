@@ -1,52 +1,56 @@
-import React , {useState, useEffect} from "react"; 
+import React , {useState} from "react"; 
 import {Link} from "gatsby";
-import axios from "axios";
+import  drunken_rock_lee  from "../images/illus/drunken_rock_lee_tshirt.jpg";
+import drunken from "../images/illus/drunken.jpg";
+import nakmuay from "../images/illus/nakmuay.webp";
+import piedbouche from "../images/illus/piedbouche.jpg";
+import superstrike from "../images/illus/superstrike.webp";
+import jab from "../images/illus/Hearns.jpg";
+import sniper from "../images/illus/sniper3.jpg";
+import example from "../images/illus/example.avif";
+import kung_fu from "../images/illus/kungfu_tiger.jpg";
+
 
 const grid_images = [
     {
         "color" : "yellow",
-        "img" : ""
+        "img" : drunken
     },
     {
         "color" : "red",
-        "img" : ""
+        "img" : piedbouche
     },
     {
         "color" : "blue",
-        "img" : ""
+        "img" : superstrike
     },
     {
         "color" : "green",
-        "img" : "",
+        "img" : drunken_rock_lee,
     },
     {
         "color" : "blue",
-        "img" : "",
+        "img" : jab,
     },
     {
         "color" : "brown",
-        "img" : "",
+        "img" : example,
     },
     {
         "color" : "green",
-        "img" : "",
+        "img" : sniper,
     },
     {
         "color" : "yellow",
-        "img" : "",
+        "img" : kung_fu
     },
     {
         "color" : "cyan",
-        "img" : "",
+        "img" : nakmuay,
     }
 ]
 
 const Footer = () => {
-    useEffect (()=>{
-        axios.get("https://graph.facebook.com/v3.2/17841405309211844?fields=business_discovery.username(bluebottle){followers_count,media_count}&access_token={access-token}")
-             .then(console.log)
-             .catch(console.log)
-    },[])
     return(
         <footer>
             <div className="liens">
@@ -69,16 +73,15 @@ const Footer = () => {
                             <Link to='/faq'>FAQ</Link></li>
                         <li>
                             <Link to='/news'>News</Link></li>
-                        <li>C</li>
                     </ul>
                 </div>
             </div>
-            <div style={{display : "flex", justifyContent :"center", margin : "1rem", flexDirection: "column", alignItems : "center"}}>
+            <div style={{display : "flex", justifyContent :"center", margin : "5rem auto", flexDirection: "column", alignItems : "center"}}>
                 <h1>Réseaux sociaux</h1>
                 <div id="grid_reseaux">
                     {grid_images.map(el =>(
-                        <figure style={{ backgroundColor: el.color, width : "100%", margin : "0px" }}>
-                            <img src=""/>
+                        <figure style={{ backgroundColor: el.color, margin : "0px" }}>
+                            <img src={el.img} style={{width:"100%", height:"100%"}}/>
                         </figure>
                     ))}
                     
