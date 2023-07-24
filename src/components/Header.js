@@ -6,12 +6,12 @@ import UserNavBar from "./UserNavbar";
 
 const Header = () => {
     return (
-        <>
-            <div id="logo">
-                <Link to="/"><h1>Matanjaka</h1></Link>
-            </div>
-            <UserNavBar/>
-        </>
+        <div style={{display : "flex", alignItems:"center", justifyContent:"space-around", padding:"0.5rem"}}>
+              <div id="logo">
+                    <Link to="/"><h1>Matanjaka</h1></Link>
+                </div>
+                <UserNavBar/>
+        </div>
     )
 }
 

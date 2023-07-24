@@ -4,6 +4,7 @@ import Checkout from "../components/Checkout";
 import Product from "../components/Product";
 import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
+import SocialMedia from "../components/SocialMedia";
 import {checkout_context} from '../services/context.js';
 import t_shirt_img from "../images/t-shirt.png";
 import rash_img from "../images/rash1.webp";
@@ -43,15 +44,11 @@ function generateProduct(){
   
   const featured_products_ = [
     {
-        "name" :"T shirt manche longue de type compression",
+        "name" :"COMBAT READY",
         "id" :678,
+        "desc": "PRET POUR LA GUERRE",
         "img" : rash_img
     },
-    {
-        "name" :"T shirt et Sweats",
-        "id" :679,
-        "img" : t_shirt_img
-    }
 ]
 
 const Home = ({location}) => {
@@ -75,19 +72,19 @@ const Home = ({location}) => {
 
                 <div id="hero">
                     { featuredProducts.map( fp => (
-                        <HeroProduct name={fp.name} key={fp.id} img={fp.img}/>
+                        <HeroProduct name={fp.name} key={fp.id} img={fp.img} desc={fp.desc}/>
                     ))
                     }
                 </div>
                 <form id="search">
                     <label>
                         <input type="text" name="recherche" placeholder="Rechercher par nom..."id="recherche"/>
-                        <button className="search_button"></button>
+                        <button className="search_button">O</button>
                     </label>
                 </form>
                 <div className="main_container">
                     <SizeSwitcher/>
-                    <div style={{alignItems:"center"}}>
+                    <div style={{alignItems:"center", margin:"auto"}}>
                     <div className="product_grid">
                         {products.map(el=>(
                             <Product key={el.id} price={el.price} name={el.name}/>
@@ -96,6 +93,14 @@ const Home = ({location}) => {
                     <div>
                         <h2>Produits Stripe</h2>
                         <Products/>
+                    </div>
+                    <SocialMedia/>
+                    <div style={{ display:"flex", flexDirection:"column",alignItems:"center",backgroundColor:"rgb(52 213 106)", width:"100%", margin:0, padding:"2rem 0"}}>
+                        <h2>On vous tient au courant via la newsletter!</h2>
+                        <form action="#" style={{width:"85%", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                            <p><input type="text" name="email"/></p>
+                            <p><input type="submit" value="C'est parti" style={{border:"none"}}/></p>
+                        </form>
                     </div>
                     </div>
                     <Checkout/> 
