@@ -84,7 +84,7 @@ const Home = ({location}) => {
                 </form>
                 <div className="main_container">
                     <SizeSwitcher/>
-                    <div style={{alignItems:"center", margin:"auto"}}>
+                    <div style={{alignItems:"center", margin:"auto",gridColumnStart: 1,gridColumnEnd: 6}}>
                     <div className="product_grid">
                         {products.map(el=>(
                             <Product key={el.id} price={el.price} name={el.name}/>
@@ -95,11 +95,11 @@ const Home = ({location}) => {
                         <Products/>
                     </div>
                     <SocialMedia/>
-                    <div style={{ display:"flex", flexDirection:"column",alignItems:"center",backgroundColor:"rgb(52 213 106)", width:"100%", margin:0, padding:"2rem 0"}}>
-                        <h2>On vous tient au courant via la newsletter!</h2>
-                        <form action="#" style={{width:"85%", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-                            <p><input type="text" name="email"/></p>
-                            <p><input type="submit" value="C'est parti" style={{border:"none"}}/></p>
+                    <div style={{ display:"flex", flexDirection:"column",alignItems:"center",backgroundColor:"rgb(52 213 106)", width:"100%", margin:0, padding:"1.5rem 0"}}>
+                        <h2 style={{margin: "0px 10px 8px", fontSize:18, textAlign : "center", color:"white"}}>Restez au courant du move !</h2>
+                        <form action="#" style={{width:"85%", display:"flex", alignItems:"center", justifyContent:"space-between", border :"2px solid white", padding:"0.2rem", margin :0}}>
+                            <p style={{margin:0, borderRight:"1px solid white"}}><input type="text" name="email" placeholder='votre adresse e-mail' style={{backgroundColor:"transparent"}}/></p>
+                            <p style={{margin:0}}><input type="submit" value="C'est parti" style={{border :"none", backgroundColor: "transparent", color: 'white'}}/></p>
                         </form>
                     </div>
                     </div>

@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="liens">
                 <div>
                     <h1>En savoir plus</h1>
-                    <ul>
+                    <ul  style={{padding:0}}>
                         <li>
                             <Link to="/contact">Nous Contacter</Link>
                         </li>
@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h1>Question</h1>
-                    <ul>
+                    <ul style={{padding:0}}>
                         <li>
                             <Link to='/faq'>FAQ</Link></li>
                         <li>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </div>
             </div>
             <div style={{textAlign:"center"}}>
-                <p>développé par <a href="https://baomediamain.gatsbyjs.io/">@Bao Media</a> 2023</p>
+                <p style={{margin : 0, padding :'0.5rem'}}>développé par <a href="https://baomediamain.gatsbyjs.io/">@Bao Media</a> 2023</p>
             </div>
 
         </footer>

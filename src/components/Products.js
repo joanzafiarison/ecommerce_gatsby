@@ -29,7 +29,7 @@ export default function Products (){
              }
             `}
             render={( {prices} ) => (
-                <div>
+                <div style={{margin:"auto"}}>
                     {prices.edges.map( ({node : price}) => (
                         <Product 
                             key={price.id} 
