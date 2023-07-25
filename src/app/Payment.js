@@ -58,7 +58,7 @@ const PaymentPage = ({location}) => {
         setCheckout(getProducts());
     },[])
     return (
-    <div>
+    <div className="main_container">
         <h1>Paiement</h1>
         <div className="payment_process">
             <div className="stepSwitcher" style={{display:"flex",width:"100%",justifyContent:"space-around"}}>

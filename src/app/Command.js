@@ -49,7 +49,7 @@ const CommandPage = () => {
     // Récupératiion des infos
     const [currentCommand, setCurrentCommand] = useState(-1)
     return(
-        <div style={{minHeight: 600}}>
+        <div className='base_container'>
             <h1>Commandes</h1>
             {
                 commands.map((product,i) => (

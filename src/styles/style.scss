@@ -63,6 +63,9 @@ a:hover {
 }
 
 
+.base_container {
+    height :100vh;
+}
 #hero {
     margin : 0px 0px 7em 0px;
 }
@@ -176,11 +179,23 @@ nav > ul> li > a:hover {
 /*INPUT */
 
 #search {
+    position:relative;
     width:50%;
     margin: 5rem auto;
     @media screen and (max-width : 800px){
         width :70%;
     }
+}
+
+.searchResults {
+    position :absolute;
+    top:100%;
+    width:100%;
+    box-shadow : 1px 1px 1px grey
+}
+
+#searchElement {
+    position:relative;
 }
 
 form {
@@ -268,7 +283,7 @@ input[type="submit"] {
     //flex-direction: column;
     //align-items: center;
     text-align : start;
-    margin:10px;
+    margin:0.8em auto;
     max-width: 200px;
     width: 9rem;
     @media screen and ( max-width : 1000px){
@@ -314,6 +329,12 @@ input[type="submit"] {
     border : 1px solid black;
 }
 
+.pagination {
+    margin: 8px auto;
+    width: 10rem;
+    display: flex;
+    justify-content: space-around;
+}
 /*CHECKOUT*/
 
 .item {

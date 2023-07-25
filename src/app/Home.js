@@ -1,11 +1,12 @@
 import React , {useEffect, useContext} from "react";
 import SizeSwitcher from "../components/SizeSwitcher";
+import GraphEx from "../components/GraphExemple";
 import Checkout from "../components/Checkout";
 import Product from "../components/Product";
 import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
 import SocialMedia from "../components/SocialMedia";
-import {checkout_context} from '../services/context.js';
+import {checkout_context, DataProvider} from '../services/context.js';
 import t_shirt_img from "../images/t-shirt.png";
 import rash_img from "../images/rash1.webp";
 
@@ -59,13 +60,30 @@ const Home = ({location}) => {
     //const [overlay,setOverlay] = React.useState(false);
     const [products,setProducts] = React.useState(generateProduct());
     const [featuredProducts, setFeaturedProducts] = React.useState([]);
+
+    const [search, setSearch] = React.useState("Red");
+    const [results, setResults] = React.useState("");
+    const [page, setPage] = React.useState(0);
+
+    console.log('req',results)
+
     //const [size,setSize] = React.useState("XS");
     //const [checkout, setCheckout] = React.useState([]);
-    
+
+    function submitSearch (e){
+        e.preventDefault();
+    }
+
     useEffect(() => {
         //kind of api call
         setFeaturedProducts(featured_products_);
     },[])
+
+    useEffect(() => {
+        //kind of api call
+        console.log("search call",search);
+        //setResults(res_site)
+    },[search])
    
     return(
         <>
@@ -76,12 +94,16 @@ const Home = ({location}) => {
                     ))
                     }
                 </div>
-                <form id="search">
-                    <label>
-                        <input type="text" name="recherche" placeholder="Rechercher par nom..."id="recherche"/>
-                        <button className="search_button">O</button>
-                    </label>
-                </form>
+                <div id="searchElement">
+                    <form id="search" onSubmit={submitSearch}>
+                        <label>
+                            <input type="text" name="recherche" placeholder="Rechercher par nom..."id="recherche" onChange={(e) => setSearch(e.target.value)}/>
+                            <button className="search_button">O</button>
+                            <GraphEx search={`/${search}/`}/>
+                        </label>
+                    </form>
+                    
+                </div>
                 <div className="main_container">
                     <SizeSwitcher/>
                     <div style={{alignItems:"center", margin:"auto",gridColumnStart: 1,gridColumnEnd: 6}}>
@@ -89,6 +111,11 @@ const Home = ({location}) => {
                         {products.map(el=>(
                             <Product key={el.id} price={el.price} name={el.name}/>
                         ))}
+                    </div>
+                    <div className="pagination">
+                        <button className="button-1">1</button>
+                        <button className="button-2">2</button>
+                        <button className="button-3">3</button>
                     </div>
                     <div>
                         <h2>Produits Stripe</h2>

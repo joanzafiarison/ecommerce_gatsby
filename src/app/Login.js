@@ -40,7 +40,7 @@ const LoginPage =  () => {
     },[])
 
     return (
-        <div>
+        <div className="base_container">
             <form method="post" onSubmit={handleSubmit}>
                 <label>
                     Pseudo  

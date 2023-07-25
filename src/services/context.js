@@ -1,5 +1,6 @@
 import React , {useEffect, createContext} from "react";
 import { getProducts } from "../services/checkout";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 //avec typescript pour mettre en place un meilleur controle du context 
 
@@ -36,4 +37,18 @@ const PaymentProvider =( {children}) => {
     )
 }
 
-export {checkout_context, payment_context,  CheckoutProvider, PaymentProvider}
+const DataProvider = ( {children} ) => {
+    const client  = new ApolloClient({
+        uri : "http://localhost:8000/__graphql",
+        cache : new InMemoryCache()
+      });
+    
+      return (
+        <ApolloProvider client={client}>
+            {children}
+        </ApolloProvider>
+      )
+
+}
+
+export {checkout_context, payment_context,  CheckoutProvider, PaymentProvider, DataProvider}

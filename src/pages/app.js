@@ -13,7 +13,6 @@ import PrivateRoute from "../components/PrivateRoute.js";
 import {checkout_context, CheckoutProvider} from '../services/context.js';
 
 
-
   
 const App = () => {
   
@@ -24,19 +23,20 @@ const App = () => {
     //lorsque l'on fait checkout_context.Provider value={{checkout, setCheckout}}
     // on set le context
     return (
-     <CheckoutProvider>
-        <Layout>
-          <Router>
-            <Home path="/"/>
-            <Login path="/app/login"/>
-            <PrivateRoute path="/app/command" component={Command}/>
-            <PrivateRoute path="/app/profile" component={Profile}/>
-            <Payment path="/app/payment"/>
-            <PaymentSuccess path="/app/payment/success"/>
-            <PaymentFailed path="/app/payment/failed"/>
-          </Router>
-        </Layout>
-      </CheckoutProvider>
+    
+      <CheckoutProvider>
+          <Layout>
+            <Router>
+              <Home path="/"/>
+              <Login path="/app/login"/>
+              <PrivateRoute path="/app/command" component={Command}/>
+              <PrivateRoute path="/app/profile" component={Profile}/>
+              <Payment path="/app/payment"/>
+              <PaymentSuccess path="/app/payment/success"/>
+              <PaymentFailed path="/app/payment/failed"/>
+            </Router>
+          </Layout>
+        </CheckoutProvider>
     )
   }
   //
