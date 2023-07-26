@@ -107,19 +107,11 @@ const Home = ({location}) => {
                 <div className="main_container">
                     <SizeSwitcher/>
                     <div style={{alignItems:"center", margin:"auto",gridColumnStart: 1,gridColumnEnd: 6}}>
-                    <div className="product_grid">
-                        {products.map(el=>(
-                            <Product key={el.id} price={el.price} name={el.name}/>
-                        ))}
-                    </div>
+                    <Products/>
                     <div className="pagination">
                         <button className="button-1">1</button>
                         <button className="button-2">2</button>
                         <button className="button-3">3</button>
-                    </div>
-                    <div>
-                        <h2>Produits Stripe</h2>
-                        <Products/>
                     </div>
                     <SocialMedia/>
                     <div style={{ display:"flex", flexDirection:"column",alignItems:"center",backgroundColor:"rgb(52 213 106)", width:"100%", margin:0, padding:"1.5rem 0"}}>

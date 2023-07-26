@@ -282,6 +282,7 @@ input[type="submit"] {
 .product {
     //flex-direction: column;
     //align-items: center;
+    position : relative;
     text-align : start;
     margin:0.8em auto;
     max-width: 200px;
@@ -413,7 +414,11 @@ input[type="submit"] {
     background-color: $second-color;
     color :white;
     border :none;
+    position: absolute;
+    top: 0%;
+    right: 0%;
 }
+
 
 .add_button:hover {
     background-color: #EABF00;

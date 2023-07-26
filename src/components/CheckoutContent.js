@@ -23,6 +23,7 @@ const Contexted = () =>{
         {checkout.map((it,i)=>(
           <div className="item" key={i}>
             <div className="item_image">
+               <img src={it.image} style={{width:"100%", height:"100%"}} />
             </div>
             <div className="meta">
                 <p className="meta_title">{it.name}</p>

@@ -6,9 +6,10 @@ import {getProducts, handleProducts} from "../services/checkout";
 const Product = ({name, price, images, desc}) =>{
     const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
     //console.log("current product ", getProducts());
-    function addProduct(name, price) {
+    function addProduct(name, price, images) {
       let newData = [...checkout];
       console.log(`${name} ajouté, cela coûte ${price} euros`)
+      console.log("image ",images[0])
       //if product existe deja on ajoute + 1
       let isNew = checkout.findIndex(el => el.name === name && el.price ===price);
       
@@ -18,7 +19,7 @@ const Product = ({name, price, images, desc}) =>{
         newData[isNew] = modifiedData; 
       }
       else{
-        newData = [...checkout, {"name" : name, "price" : price, quantity:1}];  
+        newData = [...checkout, {"name" : name, "price" : price, image : images[0], quantity:1}];  
 
       }
       handleProducts({
@@ -32,11 +33,12 @@ const Product = ({name, price, images, desc}) =>{
     return(
     <div className="product">
         <div className="product_image">
-          <img src={images} style={{width:"100%"}} alt={desc}/>
+          <img src={images[0]} style={{width:"100%", height:"100%"}} alt={desc}/>
         </div>
         <p className="product_name">{name}</p>
         <p className="price">$ {price.split(".")[0]}.<span>{price.split(".")[1]}</span></p>
-        <button className="add_button" onClick={()=> addProduct(name, price)}>Ajouter</button>
+        <button className="add_button" onClick={()=> addProduct(name, price, images)}>Ajouter</button>
+        <button>Voir</button>
       </div>
     )
 }

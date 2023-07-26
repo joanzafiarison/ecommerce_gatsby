@@ -72,7 +72,7 @@ export default function GraphExemple ({search}) {
 
         return (
             <div className="searchResults">
-                {searchRes.length > 0 ? 
+                {searchRes.length > 0 & search !=="" ? 
                     <div>
                         {searchRes.map( ({node : item }) => (
                             <div style={{display : "flex"}}>
@@ -88,15 +88,5 @@ export default function GraphExemple ({search}) {
           </div>
         )
 }
-
-/*                {results_query.results.edges.map( ({node : result}) => (
-                     <div style={{display:"flex"}}>
-                        <p>{result.product.name}</p>
-                        <p>{result.unit_amount} {result.currency}</p>
-                        <figure style={{width:30, height:30}}>
-                            <img src={result.product.images[0]} style={{width:"100%"}}/>
-                        </figure>
-                    </div>
-                ) )}*/
 
 
