@@ -1,8 +1,8 @@
-import React from 'react'; 
+import React, { useState } from 'react'; 
 import { graphql, StaticQuery} from 'gatsby';
 import Product from './Product';
 
-export default function Products (){
+export default function Products ( {page, weight }){
     return(
         <div className="product_grid">
             <StaticQuery
@@ -31,7 +31,7 @@ export default function Products (){
                 `}
                 render={( {prices} ) => (
                     <>
-                        {prices.edges.map( ({node : price}) => (
+                        {prices.edges.slice(page*weight,page*weight+weight).map( ({node : price}) => (
                             <Product 
                                 key={price.id} 
                                 name={price.product.name}

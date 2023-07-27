@@ -6,6 +6,7 @@ import Product from "../components/Product";
 import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
 import SocialMedia from "../components/SocialMedia";
+import Contact from "../components/Contact";
 import {checkout_context, DataProvider} from '../services/context.js';
 import t_shirt_img from "../images/t-shirt.png";
 import rash_img from "../images/rash1.webp";
@@ -107,20 +108,13 @@ const Home = ({location}) => {
                 <div className="main_container">
                     <SizeSwitcher/>
                     <div style={{alignItems:"center", margin:"auto",gridColumnStart: 1,gridColumnEnd: 6}}>
-                    <Products/>
-                    <div className="pagination">
-                        <button className="button-1">1</button>
-                        <button className="button-2">2</button>
-                        <button className="button-3">3</button>
-                    </div>
-                    <SocialMedia/>
-                    <div style={{ display:"flex", flexDirection:"column",alignItems:"center",backgroundColor:"rgb(52 213 106)", width:"100%", margin:0, padding:"1.5rem 0"}}>
-                        <h2 style={{margin: "0px 10px 8px", fontSize:18, textAlign : "center", color:"white"}}>Restez au courant du move !</h2>
-                        <form action="#" style={{width:"85%", display:"flex", alignItems:"center", justifyContent:"space-between", border :"2px solid white", padding:"0.2rem", margin :0}}>
-                            <p style={{margin:0, borderRight:"1px solid white"}}><input type="text" name="email" placeholder='votre adresse e-mail' style={{backgroundColor:"transparent"}}/></p>
-                            <p style={{margin:0}}><input type="submit" value="C'est parti" style={{border :"none", backgroundColor: "transparent", color: 'white'}}/></p>
-                        </form>
-                    </div>
+                        <Products page={page} weight={5}/>
+                        <div className="pagination">
+                            <button className="button-1" onClick={()=>setPage(0)}>1</button>
+                            <button className="button-2" onClick={()=>setPage(1)}>2</button>
+                        </div>
+                        <SocialMedia/>
+                        <Contact/>
                     </div>
                     <Checkout/> 
                 </div>

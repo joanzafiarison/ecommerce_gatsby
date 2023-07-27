@@ -4,7 +4,7 @@ import { checkout_context } from "../services/context";
 
 const Contexted = () =>{
     const {checkout, setCheckout} = useContext(checkout_context);
-  
+    
     function remove_(i){
       setCheckout(checkout.filter((v,k)=> k!==i));
   
