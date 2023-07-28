@@ -40,6 +40,12 @@ module.exports = {
           head : true,
         }
       }
+    },
+    {
+      resolve: "gatsby-source-instagram-all",
+      options : {
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN
+      }
     }
 ]
 };
