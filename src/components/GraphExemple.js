@@ -55,7 +55,7 @@ export default function GraphExemple ({search}) {
       };
       let prod_url="https://serverless-server.vercel.app";
       let local_url="http://localhost:3000";
-      let prd = fetch(`${local_url}/api/get-products`, init)
+      let prd = fetch(`${prod_url}/api/get-products`, init)
                     .then((res)=> res.json())
                     .then(res => setSearchRes(res))
                     .catch(console.error)
