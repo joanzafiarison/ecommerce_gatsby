@@ -41,7 +41,7 @@ const LoginPage =  () => {
 
     return (
         <div className="base_container">
-            <form method="post" onSubmit={handleSubmit}>
+            <form method="post" onSubmit={handleSubmit} style={{padding : "2rem"}}>
                 <label>
                     Pseudo  
                     <input 

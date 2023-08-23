@@ -37,18 +37,18 @@ const FAQ = () => {
     }
     return(
         <Layout>
-            <div style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"2em"}}>
-                <h1>FAQ</h1>
+            <div style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"5rem 2em"}}>
+                <h1>Questions fréquentes</h1>
                 
                 <div className="questions">
                     {frequent_questions.map((element, i)=>(
                         <div className="question_panel" key={i}>
                             <div className="question">
-                                <p>{element.question}</p>
-                                <button onClick={()=>HandleQuestions(i)}>V</button>
+                                <p style={{fontSize :18, fontWeight : 600}}>{element.question}</p>
+                                <button style={{backgroundColor:"transparent", border :"none"}} onClick={()=>HandleQuestions(i)}>v</button>
                             </div>
-                            <div className="info" style={{display: currentQuestion === i? "flex" : "none"}}>
-                                <p>{element.response}</p>
+                            <div className="info" style={{display: currentQuestion === i? "flex" : "none", maxWidth:"10rem", justifyContent :"center"}}>
+                                <p style={{color : "grey"}}>{element.response}</p>
                             </div>
                         </div>
                     ))}

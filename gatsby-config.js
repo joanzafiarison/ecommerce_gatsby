@@ -41,5 +41,16 @@ module.exports = {
         }
       }
     },
+    /*
+    {
+      resolve : "plugin",
+      options : {
+        endpoint: "https://graph.facebook.com/v3.2/",
+        message : "Hello",
+        access_token : process.env.INSTAGRAM_ACCESS_TOKEN,
+        instagram_user_id : process.env.INSTAGRAM_USER_ID,
+        instagram_user_name : process.env.INSTAGRAM_USER_NAME,
+      }
+    }*/
 ]
 };
