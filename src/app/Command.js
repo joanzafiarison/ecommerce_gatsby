@@ -53,11 +53,11 @@ const CommandPage = () => {
             <h1>Commandes</h1>
             {
                 commands.map((product,i) => (
-                    <div className = "product_" key={i} style={{margin:"3em"}}>
-                        <div style={{display : "flex",justifyContent:"space-around"}}>
+                    <div className = "product_command" key={i}>
+                        <div className="product_meta" style={{display : "flex",justifyContent:"space-around"}}>
                             <p>{product.id}</p>
                             <p>{product.date}</p>
-                            <button 
+                            <button className="button_base"
                                 onClick={()=>{
                                     if(i === currentCommand){
                                         setCurrentCommand(-1)

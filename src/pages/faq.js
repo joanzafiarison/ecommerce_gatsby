@@ -47,8 +47,8 @@ const FAQ = () => {
                                 <p style={{fontSize :18, fontWeight : 600}}>{element.question}</p>
                                 <button style={{backgroundColor:"transparent", border :"none"}} onClick={()=>HandleQuestions(i)}>v</button>
                             </div>
-                            <div className="info" style={{display: currentQuestion === i? "flex" : "none", maxWidth:"10rem", justifyContent :"center"}}>
-                                <p style={{color : "grey"}}>{element.response}</p>
+                            <div className="info" style={{display: currentQuestion === i? "flex" : "none", maxWidth:"10rem", justifyContent :"center", maxWidth: "10rem",margin: "auto", padding:"1rem"}}>
+                                <p style={{color : "#504545"}}>{element.response}</p>
                             </div>
                         </div>
                     ))}
