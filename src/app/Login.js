@@ -1,6 +1,7 @@
 import React , {useState, useEffect} from "react";
 import { HandleLogin, isLoggedIn } from "../services/auth";
-import { navigate } from "gatsby";
+import { navigate } from "gatsby" ;
+import LoginButton from "../components/LoginButton";
 
 const LoginPage =  () => {
     const [credentials, setCredentials] = useState({
@@ -68,6 +69,9 @@ const LoginPage =  () => {
                 </label>
                 <input  type="submit" value="Se connecter"/>
             </form>
+            <button onClick={()=>{navigate("/app/register")}}>Créer un compte</button>
+            <LoginButton/>
+            
         </div>
     )
 }

@@ -5,6 +5,7 @@ import Layout from "../components/Layout.js";
 import Home from "../app/Home.js";
 import Profile from "../app/Profile.js";
 import Login from "../app/Login.js";
+import Register from "../app/Register.js";
 import Command from "../app/Command.js";
 import Payment from "../app/Payment.js";
 import PaymentSuccess from "../app/PaymentSuccess.js"; 
@@ -29,6 +30,7 @@ const App = () => {
             <Router>
               <Home path="/"/>
               <Login path="/app/login"/>
+              <Register path="/app/register"/>
               <PrivateRoute path="/app/command" component={Command}/>
               <PrivateRoute path="/app/profile" component={Profile}/>
               <Payment path="/app/payment"/>

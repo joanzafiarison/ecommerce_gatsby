@@ -7,7 +7,7 @@ const frequent_questions = [
         "response":"Les délais de livraisons sont de 2 à 3 semaine, il peut arriver que nous gardons des stocks pour pouvoir livrer rapidement"
     },
     {
-        "question":"D'ou proviennent les vêtements 'Killer Moves'",
+        "question":"D'ou proviennent les vêtements 'Matanjaka'",
         "response":"Les délais de livraisons sont de 2 à 3 semaine, il peut arriver que nous gardons des stocks pour pouvoir livrer rapidement"
     },
     {

@@ -22,7 +22,7 @@ const Checkout = () =>{
     //
     console.log("panier ",checkout);
     return  <div className="checkout">  
-                <div style={{display:"block",backgroundColor:"#1B1A20",position:"fixed",height :overlay? "100%":"auto",right:0,top:0,width: overlay? 450 :"auto",color:"white"}}>
+                <div style={{display:"block",backgroundColor:"#1B1A20",position:"fixed", zIndex : 10,height :overlay? "100%":"auto",right:0,top:0,width: overlay? 450 :"auto",color:"white"}}>
                 <figure onClick={()=>setOverlay(!overlay)} style={{margin : 0, padding :"0.2em"}}><img src={cart_img} alt="cart"/></figure>
                 <div style={{display:overlay? "flex":"none",margin:"auto",flexDirection:"column",alignItems:"center",justifyContent:"space-around"}}>
                     <figure className="checkout_image_open" style={{ backgroundImage:`url(${cart_img})`}}>

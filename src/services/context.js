@@ -11,14 +11,20 @@ const CheckoutProvider = ({children}) =>{
     const [overlay, setOverlay] = React.useState(false);
     const [checkout, setCheckout] = React.useState([]);
     const [size,setSize] = React.useState("XS");
+    const [productDetail, setProductDetail] = React.useState({});
+    const [overlayMessage, setOverlayMessage] = React.useState("");
     useEffect(()=>{
         console.log("products",getProducts())
         setCheckout(getProducts());
         console.log(checkout);
         console.log("in use effect")
     },[]);
+
+    useEffect( () => {
+       console.log("useEffect overlay",overlayMessage )
+    },[overlayMessage])
     return (
-        <checkout_context.Provider value={{checkout, setCheckout, overlay, setOverlay,  size, setSize}}>
+        <checkout_context.Provider value={{checkout, setCheckout, overlay, setOverlay,  size, setSize , productDetail, setProductDetail, overlayMessage, setOverlayMessage}}>
             {children}
         </checkout_context.Provider>
     )

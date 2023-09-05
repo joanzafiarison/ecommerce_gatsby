@@ -3,6 +3,7 @@ import SizeSwitcher from "../components/SizeSwitcher";
 import GraphEx from "../components/GraphExemple";
 import Checkout from "../components/Checkout";
 import Product from "../components/Product";
+import ProductDetail from "../components/ProductDetail";
 import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
 import SocialMedia from "../components/SocialMedia";
@@ -65,6 +66,7 @@ const Home = ({location}) => {
     const [search, setSearch] = React.useState("Red");
     const [results, setResults] = React.useState("");
     const [page, setPage] = React.useState(0);
+   
 
     console.log('req',results)
 
@@ -118,6 +120,8 @@ const Home = ({location}) => {
                     </div>
                     <Checkout/> 
                 </div>
+                <p style={{position :"fixed" , zIndex : 10, top : "5%", left :"80%", backgroundColor :"green", padding :15, borderRadius :5}}>Overlay : {ctx.overlayMessage}</p>
+                 <ProductDetail/> 
  
         </>
     )

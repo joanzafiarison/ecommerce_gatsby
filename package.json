@@ -17,6 +17,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.17",
     "@apollo/react-hooks": "^4.0.0",
+    "@auth0/auth0-react": "^2.2.1",
     "@stripe/stripe-js": "^1.53.0",
     "dotenv": "^16.0.3",
     "gatsby": "^5.5.0",

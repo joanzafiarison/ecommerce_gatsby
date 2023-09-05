@@ -3,8 +3,8 @@ import {checkout_context} from "../services/context";
 import {getProducts, handleProducts} from "../services/checkout";
 
 //CheckoutPaiement?
-const Product = ({name, price, images, desc}) =>{
-    const { checkout, setCheckout, overlay, setOverlay } = useContext(checkout_context);
+const Product = ({name, price, images, desc, id}) =>{
+    const { checkout, setCheckout, setOverlay, setOverlayMessage, productDetail, setProductDetail } = useContext(checkout_context);
     //console.log("current product ", getProducts());
     function addProduct(name, price, images) {
       let newData = [...checkout];
@@ -31,7 +31,7 @@ const Product = ({name, price, images, desc}) =>{
       setOverlay(true);
     }
     return(
-    <div className="product">
+    <div className="product" onClick={() => setProductDetail({...productDetail, name : name, id : id, images : images, price : price , desc : desc })}>
         <div className="product_image">
           <img src={images[0]} style={{width:"100%", height:"100%"}} alt={desc}/>
         </div>

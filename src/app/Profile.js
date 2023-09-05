@@ -1,5 +1,6 @@
 import React , {useState, useEffect} from "react"; 
-import {getUser} from "../services/auth.js";
+import { navigate } from "gatsby";
+import { getUser, handleUpdate, deleteAccount } from "../services/auth.js";
 
 
 const ProfilePage = () => {
@@ -15,8 +16,6 @@ const ProfilePage = () => {
     }
 
     function handleChange(e){
-        console.log(e.target.name);
-        console.log(e.target.value);
         if (userData[e.target.name] !== e.target.value ){
             setUserData({...userData,[e.target.name] : e.target.value})
         }
@@ -29,11 +28,15 @@ const ProfilePage = () => {
         //postal
         //mot de passe
     }
-
+    function logout_process (){
+        navigate("/app/login");
+    }
     useEffect(()=>{
+
         //envoie des nouvelles données? 
         // en attente, attendre c=nf=f nfionfirmation via email
-        console.log(userData)
+        handleUpdate(userData);
+        console.log("useeffect valid",userData)
     },[valid])
     return(
         <div className='base_container'>
@@ -53,7 +56,7 @@ const ProfilePage = () => {
                 </label>
                 <label>  
                     Adresse :
-                    <input type="text" name="adress" value={userData.adress} disabled={ openModification ?  "" : "disabled"} onChange={(e) => handleChange(e)}/>
+                    <input type="text" name="address" value={userData.address} disabled={ openModification ?  "" : "disabled"} onChange={(e) => handleChange(e)}/>
                 </label>
                 <label>  
                     Postal:
@@ -67,11 +70,11 @@ const ProfilePage = () => {
                     Téléphone :
                     <input type="text" name="phone" value={userData.phone} disabled={ openModification ?  "" : "disabled"} onChange={(e) => handleChange(e)}/>
                 </label>
-                <button disabled={ openModification ? "" : "disabled"} style={{width:150}} onClick={() => handleValidation()} >Valider</button>
+                <button disabled={ openModification ? "" : "disabled"} style={{width:150}} onClick={() => setValid(!valid)} >Valider</button>
             </form> 
       
             <button style={{width:150}} onClick={()=> setOpenModification(!openModification)}>Modifier les informations</button>
-
+            <button onClick={() => deleteAccount(logout_process)}>Supprimer mon compte</button>
         </div>
     )
 }

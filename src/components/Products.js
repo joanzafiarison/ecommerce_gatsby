@@ -34,6 +34,7 @@ export default function Products ( {page, weight }){
                         {prices.edges.slice(page*weight,page*weight+weight).map( ({node : price}) => (
                             <Product 
                                 key={price.id} 
+                                id={price.id}
                                 name={price.product.name}
                                 price={(price.unit_amount/100).toString().padEnd(2, '0')}
                                 desc={price.product.description}
