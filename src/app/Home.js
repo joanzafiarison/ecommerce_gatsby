@@ -121,7 +121,7 @@ const Home = ({location}) => {
                     <Checkout/> 
                 </div>
                 <p style={{position :"fixed" , zIndex : 10, top : "5%", left :"80%", backgroundColor :"green", padding :15, borderRadius :5}}>Overlay : {ctx.overlayMessage}</p>
-                 <ProductDetail/> 
+                { Object.keys(ctx.productDetail).length > 0 && <ProductDetail/> }
  
         </>
     )
