@@ -21,8 +21,13 @@ const CheckoutProvider = ({children}) =>{
     },[]);
 
     useEffect( () => {
-       console.log("useEffect overlay",overlayMessage )
-    },[overlayMessage])
+       console.log("useEffect overlay --",overlayMessage )
+       setTimeout(() => {
+        console.log("end overlay"); 
+        setOverlayMessage("");
+       },2000)
+    },[overlayMessage && overlayMessage != ""])
+
     return (
         <checkout_context.Provider value={{checkout, setCheckout, overlay, setOverlay,  size, setSize , productDetail, setProductDetail, overlayMessage, setOverlayMessage}}>
             {children}

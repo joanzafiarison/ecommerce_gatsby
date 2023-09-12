@@ -26,9 +26,9 @@ function ProductDetail() {
 
 }
   return (
-        <div style={{ zIndex :"15", height :"28rem", boxShadow: "grey 1px 1px 3px",position: 'fixed', display: 'flex', flexDirection: 'column', alignItems: 'center', top: '10%', left: '20%', zIndex: 15, backgroundColor: 'white', padding: 28 , overflowY : "scroll"}}>
+        <div className="product_detail">
             <button  style={{height :20, border :"none",alignSelf:"end"}} onClick={ () => setProductDetail({}) }>X</button>
-            <div style={{display :"flex", justifyContent :"space-around"}}>
+            <div className="product_meta">
                 <div>
                     <figure style={{minHeight : 400,maxWidth:400, backgroundColor :"grey"}}>
                         <img src={productDetail.images[0]} style={{width:"100%",height :"100%", backgroundColor:"grey"}} />

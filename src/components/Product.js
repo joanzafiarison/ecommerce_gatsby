@@ -19,7 +19,7 @@ const Product = ({name, price, images, desc, id}) =>{
         newData[isNew] = modifiedData; 
       }
       else{
-        newData = [...checkout, {"name" : name, "price" : price, image : images[0], quantity:1}];  
+        newData = [...checkout, {"id" : id, "name" : name, "price" : price, image : images[0], quantity:1}];  
 
       }
       handleProducts({

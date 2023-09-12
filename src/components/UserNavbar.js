@@ -26,13 +26,16 @@ const UserNavBar = () => {
     })
 
     return (
-        <nav style={{ position: (isMobile && isOpen) ? "absolute" : "", zIndex : (isMobile && isOpen) ? 10 : 0}}>
-            <ul style={{display: (isMobile && !isOpen) ? "none" : "flex", flexDirection: (isMobile && isOpen) ? "column" : "row", position :(isMobile && isOpen) ? "absolute" : "", backgroundColor: (isMobile && isOpen) ?"grey" : "", width : (isMobile && isOpen) ? "100%" : "", height:(isMobile && isOpen) ?"100vh" : ""}}>
+        <nav style={{ position: (isMobile && isOpen) ? "absolute" : "", zIndex : (isMobile && isOpen) ? 10 : 0,  display: "flex", justifyContent: 'center'}}>
+            <ul style={{display: (isMobile && !isOpen) ? "none" : "flex", flexDirection: (isMobile && isOpen) ? "column" : "row", position :(isMobile && isOpen) ? "absolute" : "", backgroundColor: (isMobile && isOpen) ?"grey" : "", width : (isMobile && isOpen) ? "100%" : "20%", height:(isMobile && isOpen) ?"100vh" : ""}}>
                 <li>
-                    <Link to="/app/profile" style={{fontFamily:" 'Tektur' cursive"}}>Profile</Link>
+                    <Link to="/app/profile" className="link_size" >Profil</Link>
                 </li>
                 <li>
-                    <Link to="/app/command" style={{fontFamily:" 'Tektur' cursive"}}>Suivi des commandes</Link>
+                    <Link to="/app/command" className="link_size">Commandes</Link>
+                </li>
+                <li>
+                    <Link to="/news" className="link_size">Media</Link>
                 </li>
                 {!isLoggedIn() ? 
                     <li>

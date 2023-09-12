@@ -5,7 +5,7 @@ const News = () => {
     
     return(
         <Layout>
-            <div style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"2em", boxShadow:"2px 1px 4px grey"}}>
+            <div style={{display:"flex", flexDirection:"column", alignItems:"center", margin:"7rem", boxShadow:"2px 1px 4px grey"}}>
                 <h1>Annonce</h1>
                 <div className="anouncement" style={{width:"60%",margin: "0.5em"}}>
                     <h2>La boutique, sors une nouvelle collection de t shirts</h2>

@@ -30,7 +30,7 @@ const Checkout = () =>{
                     </figure>
                     <p>Panier</p>
             
-                    <div style={{overflow:"hidden", height:"100%", width:"100%"}}>
+                    <div className="checkout_products" >
                             <Contexted/>
                     </div>
                 

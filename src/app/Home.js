@@ -47,9 +47,9 @@ function generateProduct(){
   
   const featured_products_ = [
     {
-        "name" :"COMBAT READY",
+        "name" :"NOUVELLE COLLECTION EN PRECOMMANDE",
         "id" :678,
-        "desc": "PRET POUR LA GUERRE",
+        "desc": "Participe au lancement de la marque en précommandant ta tenue de combat",
         "img" : rash_img
     },
 ]
@@ -120,7 +120,7 @@ const Home = ({location}) => {
                     </div>
                     <Checkout/> 
                 </div>
-                <p style={{position :"fixed" , zIndex : 10, top : "5%", left :"80%", backgroundColor :"green", padding :15, borderRadius :5}}>Overlay : {ctx.overlayMessage}</p>
+                <p style={{ display : ctx.overlayMessage !== "" ? "flex": "none", position :"fixed" , zIndex : 10, minWidth :80, top : "5%", left :"75%", backgroundColor :"green", padding :15, borderRadius :5, color :"white" , fontSize :18}}>{ctx.overlayMessage}</p>
                 { Object.keys(ctx.productDetail).length > 0 && <ProductDetail/> }
  
         </>
