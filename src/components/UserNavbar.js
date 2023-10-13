@@ -25,9 +25,17 @@ const UserNavBar = () => {
 
     })
 
+    useEffect(() => {
+        if( window.innerWidth < 1200){
+            setMobile(true);
+        }
+        else{
+            setMobile(false);
+        }
+    },[])
     return (
         <nav style={{ position: (isMobile && isOpen) ? "absolute" : "", zIndex : (isMobile && isOpen) ? 10 : 0,  display: "flex", justifyContent: 'center'}}>
-            <ul style={{display: (isMobile && !isOpen) ? "none" : "flex", flexDirection: (isMobile && isOpen) ? "column" : "row", position :(isMobile && isOpen) ? "absolute" : "", backgroundColor: (isMobile && isOpen) ?"grey" : "", width : (isMobile && isOpen) ? "100%" : "20%", height:(isMobile && isOpen) ?"100vh" : ""}}>
+            <ul style={{display: (isMobile && !isOpen) ? "none" : "flex", flexDirection: (isMobile && isOpen) ? "column" : "row", position :(isMobile && isOpen) ? "absolute" : "", backgroundColor: (isMobile && isOpen) ?"grey" : "", width : (isMobile && isOpen) ? "100%" : "70%", height:(isMobile && isOpen) ?"100vh" : ""}}>
                 <li>
                     <Link to="/app/profile" className="link_size" >Profil</Link>
                 </li>

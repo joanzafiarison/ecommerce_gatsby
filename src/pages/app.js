@@ -11,8 +11,7 @@ import Payment from "../app/Payment.js";
 import PaymentSuccess from "../app/PaymentSuccess.js"; 
 import PaymentFailed from "../app/PaymentFailed.js"; 
 import PrivateRoute from "../components/PrivateRoute.js";
-import {checkout_context, CheckoutProvider} from '../services/context.js';
-
+import { CheckoutProvider } from '../services/context.js';
 
   
 const App = () => {
@@ -27,13 +26,12 @@ const App = () => {
     
       <CheckoutProvider>
           <Layout>
-            <Router>
+           <Router>
               <Home path="/"/>
               <Login path="/app/login"/>
               <Register path="/app/register"/>
               <PrivateRoute path="/app/command" component={Command}/>
               <PrivateRoute path="/app/profile" component={Profile}/>
-              <Payment path="/app/payment"/>
               <PaymentSuccess path="/app/payment/success"/>
               <PaymentFailed path="/app/payment/failed"/>
             </Router>
@@ -41,7 +39,7 @@ const App = () => {
         </CheckoutProvider>
     )
   }
-  //
+  //<Payment path="/app/payment"/>
   export default App;
   
   //export const Head = () => <title>Baggart</title>

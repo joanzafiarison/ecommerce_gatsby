@@ -54,7 +54,7 @@ a:hover {
     font-family: 'Press Start 2P';
     //font-family: 'Tektur',  cursive;
     @media screen and (max-width :900px){
-        font-size :3rem;
+        font-size :1.5rem;
     }
 }
 
@@ -75,11 +75,16 @@ a:hover {
     }
 }
 
+.centered {
+    display :flex; 
+    flex-direction: column;
+    align-items: center;
+}
 
 .base_container {
-    min-height :100vh;
+    min-height :30rem;
     width :60%;
-    padding :10%;
+    padding :15%;
 }
 #hero {
     margin : 0px 0px 7em 0px;
@@ -106,10 +111,17 @@ a:hover {
     height:30%;
     margin:3em;
     padding:1em;
-    width:75%;
-    text-align: center;
+    width:50%;
     letter-spacing: 1px;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .7);
+    @media screen and (max-width : 1200px){
+        padding :2em;
+        width : 40%;
+    }
+    @media screen and (max-width : 900px){
+        padding: 2rem;
+        width :80%;
+    }
 }
 
 .hero_title > h1 {
@@ -260,8 +272,9 @@ input[type="submit"] {
     width: 100%;
     justify-content: space-around;
     margin-right:10px;
-    @media screen and (max-width:1025px){
+    @media screen and (max-width:1200px){
         flex-wrap: nowrap;
+        width :50%;
     }
 }
 
@@ -319,7 +332,7 @@ input[type="submit"] {
 }
 
 .product_image {
-    width: 100%;//calc(100vw/7);
+    width: 10rem;//calc(100vw/7);
     height: 10rem;
     background-color: grey;
     @media screen and (max-width:768px){
@@ -330,40 +343,66 @@ input[type="submit"] {
 
 .product_name {
     font-size: $text-important;
-    font-weight :600;
-    font-size:16px;
+    font-weight :700;
     @media screen and (max-width:768px){
         font-size:12px;
     }
 }
 
+.product_desc {
+    font-size: $text-mini;
+    font-weight:400;
+}
+
 .product_detail {
     z-index : 15;
-    height : 39rem;
+    height : 80vh;
     box-shadow: grey 1px 1px 3px;
     position: fixed;
     display: flex;
-    flex-direction: column; 
-    align-items: center;
+    flex-direction: column;
     top: 15%;
-    left: 25%;
+    left: 10%;
+    width:80%;
     background-color: white;
     padding: 28px;
     overflow-y : scroll;
-    @media screen and (min-width : 1800px) {
-        left : 37%;
+    @media screen and (min-width :2000px){
+        top : 7%;
+        height : 80vh;
     }
+
     @media screen and (max-width : 1200px){
-        left : 10%;
+        left : 7%;
+        width:80%;
+        height : 60vh;
     }
     @media screen and (max-width : 900px){
-        top :10%;
-        left : 0%;
+        top :6%;
+        left :2%;
+        width :90%;
+        height : 80vh;
     }
 }
 
 .product_detail::-webkit-scrollbar {
     display: none; 
+}
+
+.product_detail > figure {
+    height:400px;
+    @media screen and (max-width : 900px) {
+        height: 270px;
+    }
+}
+
+.product_main {
+    display : flex;
+    @media screen and (max-width : 900px) {
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
 .product_meta {
@@ -374,14 +413,41 @@ input[type="submit"] {
     }
 }
 
+.product_metadata {
+    margin : 7rem 1rem;
+    @media screen and (max-width : 1200px){
+        margin : 7rem 3rem;
+    }
+}
+
+.product_medium {
+    width :10rem;
+    height:10rem;
+}
+
+.product_carousel {
+    margin: 7rem 0rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.product_image_main {
+    max-width : 30rem;
+    background-color :grey;
+    @media screen and (max-width : 1200px) {
+        width :50%;
+    }
+}
+
 .price {
-    font-size : $text-important; 
-    font-weight : 400;
-    font-size:12px;
+    font-size : $text-basic; 
+    font-weight : 500;
 }
 
 .price > span {
-    font-weight:100
+    font-weight:300
 }
 
 
@@ -468,10 +534,10 @@ input[type="submit"] {
 }
 
 .notification{
-    width:300px;
-    height:300px;
+    margin:10rem auto;
+    width:30rem;
+    height:20rem;
     box-shadow: $shadowBox;
-    margin: 1em auto;
 }
 
 /**/
@@ -500,8 +566,17 @@ input[type="submit"] {
     right: 0%;
 }
 
+.button_primary {
+    padding:5px;
+    margin :1rem;
+    width:5rem; 
+    background-color: $second-color;
+    color :white;
+    border :none;
+}
 
-.add_button:hover {
+
+.add_button:hover , .button_primary:hover {
     background-color: #EABF00;
     color : $second-color;
    
@@ -692,3 +767,16 @@ footer a:hover {
         grid-column-start: 3;
     }
 }
+
+
+/*ANOUNCEMENT */
+
+.anouncement_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15%;
+    padding : 5%;
+    box-shadow: 2px 1px 4px grey;
+}
+

@@ -6,6 +6,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const checkout_context = createContext();
 const payment_context = createContext();
+const search_context = createContext(null);
 
 const CheckoutProvider = ({children}) =>{
     const [overlay, setOverlay] = React.useState(false);
@@ -36,6 +37,15 @@ const CheckoutProvider = ({children}) =>{
 
 }
 
+const SearchProvider = ( {children} ) => {
+    const [ search, setSearch ] = React.useState("");
+    return(
+        <search_context.Provider value={{ search, setSearch}}>
+            {children}
+        </search_context.Provider>
+    )
+}
+
 const PaymentProvider =( {children}) => {
     const [deliveryInfo, setDeliveryInfo] = React.useState({})
     const [checkoutContent, setCheckoutContent] = React.useState({})
@@ -62,4 +72,4 @@ const DataProvider = ( {children} ) => {
 
 }
 
-export {checkout_context, payment_context,  CheckoutProvider, PaymentProvider, DataProvider}
+export {checkout_context, payment_context, search_context, SearchProvider, CheckoutProvider, PaymentProvider, DataProvider}

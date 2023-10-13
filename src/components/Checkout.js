@@ -4,6 +4,7 @@ import {Link} from "gatsby";
 import { checkout_context,CheckoutProvider } from "../services/context";
 import Contexted from "../components/CheckoutContent.js";
 import cart_img from "../images/cart.png";
+import { process_payment } from "../services/payment";
 
 const Checkout = () =>{
     const {checkout, overlay, setOverlay} = useContext(checkout_context);
@@ -20,6 +21,10 @@ const Checkout = () =>{
 
     },[checkout])
     //
+    function processCheckout(){
+        console.log(checkout)
+        process_payment(checkout,window.location.origin); 
+    }
     console.log("panier ",checkout);
     return  <div className="checkout">  
                 <div style={{display:"block",backgroundColor:"#1B1A20",position:"fixed", zIndex : 10,height :overlay? "100%":"auto",right:0,top:0,width: overlay? 450 :"auto",color:"white"}}>
@@ -40,7 +45,7 @@ const Checkout = () =>{
                                 <p>Sous total</p>
                                 <p>{total}$</p>
                             </div>
-                            <button><Link to="/app/payment" state={{checkout}}>Commander</Link></button>
+                            <button onClick={() => processCheckout()}>Commander</button>
                     </div>
 
 

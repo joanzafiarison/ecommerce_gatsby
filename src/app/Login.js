@@ -1,5 +1,6 @@
 import React , {useState, useEffect} from "react";
-import { HandleLogin, isLoggedIn } from "../services/auth";
+import { FaFacebookF, FaGoogle } from 'react-icons/fa';
+import { HandleLogin, isLoggedIn, handleFacebookLogin } from "../services/auth";
 import { navigate } from "gatsby" ;
 import LoginButton from "../components/LoginButton";
 
@@ -24,7 +25,7 @@ const LoginPage =  () => {
         HandleLogin(credentials);
         console.log("loggin", isLoggedIn())
         if( isLoggedIn() ){
-            console.log("let s go")
+            //console.log("let s go")
             navigate("/app/profile")
         }
     }
@@ -71,6 +72,10 @@ const LoginPage =  () => {
             </form>
             <button onClick={()=>{navigate("/app/register")}}>Créer un compte</button>
             <LoginButton/>
+            <div>
+                <button onClick={ handleFacebookLogin }><FaFacebookF /></button>
+                <button onClick={ handleFacebookLogin }><FaGoogle /></button>
+            </div>
             
         </div>
     )

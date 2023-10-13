@@ -36,6 +36,7 @@ const Product = ({name, price, images, desc, id}) =>{
           <img src={images[0]} style={{width:"100%", height:"100%"}} alt={desc}/>
         </div>
         <p className="product_name">{name}</p>
+        <p className="product_desc">Description</p>
         <p className="price">$ {price.split(".")[0]}.<span>{price.split(".")[1]}</span></p>
         <button className="add_button" onClick={()=> addProduct(name, price, images)}>Ajouter</button>
         <button>Voir</button>

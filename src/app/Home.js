@@ -1,16 +1,19 @@
 import React , {useEffect, useContext} from "react";
 import SizeSwitcher from "../components/SizeSwitcher";
-import GraphEx from "../components/GraphExemple";
 import Checkout from "../components/Checkout";
-import Product from "../components/Product";
+import SearchForm from "../components/SearchForm";
 import ProductDetail from "../components/ProductDetail";
 import Products from "../components/Products";
 import HeroProduct from "../components/HeroProduct";
 import SocialMedia from "../components/SocialMedia";
 import Contact from "../components/Contact";
-import {checkout_context, DataProvider} from '../services/context.js';
+import {checkout_context, DataProvider, SearchProvider} from '../services/context.js';
 import t_shirt_img from "../images/t-shirt.png";
 import rash_img from "../images/rash1.webp";
+
+import {initFacebookSdk} from "../services/fb_auth.js";
+
+initFacebookSdk().then(console.log("start FB login",window.FB));
 
 
 //
@@ -55,6 +58,7 @@ function generateProduct(){
 ]
 
 const Home = ({location}) => {
+
     const ctx = useContext(checkout_context); 
     const display = false;
     console.log("context ",ctx);
@@ -67,15 +71,9 @@ const Home = ({location}) => {
     const [results, setResults] = React.useState("");
     const [page, setPage] = React.useState(0);
    
-
     console.log('req',results)
 
-    //const [size,setSize] = React.useState("XS");
-    //const [checkout, setCheckout] = React.useState([]);
-
-    function submitSearch (e){
-        e.preventDefault();
-    }
+    
 
     useEffect(() => {
         //kind of api call
@@ -85,28 +83,22 @@ const Home = ({location}) => {
     useEffect(() => {
         //kind of api call
         console.log("search call",search);
+        console.log("FB from home", window.FB)
         //setResults(res_site)
     },[search])
    
     return(
         <>
-
+        
                 <div id="hero">
                     { featuredProducts.map( fp => (
                         <HeroProduct name={fp.name} key={fp.id} img={fp.img} desc={fp.desc}/>
                     ))
                     }
                 </div>
-                <div id="searchElement">
-                    <form id="search" onSubmit={submitSearch}>
-                        <label>
-                            <input type="text" name="recherche" placeholder="Rechercher par nom..."id="recherche" onChange={(e) => setSearch(e.target.value)}/>
-                            <button className="search_button">O</button>
-                            <GraphEx search={`/${search}/`}/>
-                        </label>
-                    </form>
-                    
-                </div>
+                <SearchProvider>
+                    <SearchForm/>
+                </SearchProvider>
                 <div className="main_container">
                     <SizeSwitcher/>
                     <div style={{alignItems:"center", margin:"auto",gridColumnStart: 1,gridColumnEnd: 6}}>

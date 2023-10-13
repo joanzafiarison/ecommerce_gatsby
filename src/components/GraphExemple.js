@@ -1,49 +1,39 @@
 import React , {useState, useEffect} from "react";
-import { ApolloClient, useQuery, gql , InMemoryCache } from "@apollo/client";
 
-function getSearchResults(client,search){
-    client.query({
-        query: gql`
-           query SearchQuery ($search : String!) {
-                products : allStripePrice (
-                    filter : { product : {name : {regex : $search } } },
-                    limit : 5
-                ) {
-                    edges {
-                        node {
-                            id 
-                            active
-                            currency
-                            unit_amount
-                            product {
-                                id
-                                name
-                                description
-                                images
-                            }
-                        }
-                    }
-                }
-           } 
-        `,
-        variables : {
-                search :search
-        }
-    })
-}
-//.then((res) => setSearchRes(res.data.products.edges))
-//.catch(console.error)
 
 export default function GraphExemple ({search}) {
     const [searchRes, setSearchRes] = useState([])
-    //console.log(searchRes.data)
-    
-    const client = new ApolloClient({
-        uri :"http://localhost:8000/__graphql",
-        cache : new InMemoryCache()
-    });
+    console.log("res src ",searchRes)
+    console.log("props srch", search)
 
-    useEffect(()=> {
+    useEffect( () => {
+      console.log("in useEffect search ",search)
+      const mockup = {
+        "mma" : [
+            {
+                name : "rashguard",
+                unit_amount : 37,
+                images : [""]
+            },
+            {
+                name : "rashguard_2",
+                unit_amount : 48,
+                images : [""]
+            },
+        ],
+        "sweat" : [
+            {
+                name : "sweat_1",
+                unit_amount : 37,
+                images : [""]
+            },
+            {
+                name : "sweat2",
+                unit_amount : 48,
+                images : [""]
+            },
+        ]
+      }
       const init = {
         method :"POST",
         headers : {
@@ -55,12 +45,20 @@ export default function GraphExemple ({search}) {
       };
       let prod_url="https://serverless-server.vercel.app";
       let local_url="http://localhost:3000";
-      let prd = fetch(`${prod_url}/api/get-products`, init)
-                    .then((res)=> res.json())
-                    .then(res => setSearchRes(res))
-                    .catch(console.error)
+      
+      fetch(`${prod_url}/api/get-products`, init)
+        .then(res => console.log(res))
+        .catch(err => {
+            let search_str = search.slice(1,-1);
+            console.log(mockup[search_str]);
+            if(mockup[search_str]){
+                setSearchRes(mockup[search_str]);
+            }
+        })
+      
+                    
 
-    },[search && search.length%3===0])
+    },[search && search.length > 4 ])
    
 
         return (
@@ -70,7 +68,7 @@ export default function GraphExemple ({search}) {
                         {searchRes.map((item) => (
                             <div style={{display : "flex"}}>
                                 <p>{item.name}</p>
-                                <p>item.unit_amount</p>
+                                <p>{item.unit_amount}</p>
                                 <figure style={{width:30, height:30, backgroundColor:"grey"}}>
                                     <img src={item.images[0]} style={{width:"100%"}} />
                                 </figure>
