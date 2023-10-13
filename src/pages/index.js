@@ -7,11 +7,12 @@ import "../styles/style.scss";
 
 import {initFacebookSdk} from "../services/fb_auth.js";
 
-initFacebookSdk().then(console.log("start FB login",window.FB));
+
 
 const IndexPage = () => {
   useEffect(() => {
     console.log("useeffect fb", window.FB)
+    initFacebookSdk().then(console.log("start FB login",window.FB));
     
   })
   return (
