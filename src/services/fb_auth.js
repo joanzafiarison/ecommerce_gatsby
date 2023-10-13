@@ -4,10 +4,10 @@ const facebookAppId = "1983164828696698";
 const isBrowser = () => typeof window !== "undefined";
 
 export function initFacebookSdk() {
-    return new Promise(resolve => {
+    return new Promise((resolve,reject) => {
 
         
-        if(isBrowser()){
+        if(isBrowser){
                         // wait for facebook sdk to initialize before starting the react app
             window.fbAsyncInit = function () {
                 window.FB.init({
@@ -35,6 +35,10 @@ export function initFacebookSdk() {
                 js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));   
+        }
+        else {
+            console.log("reject")
+            reject()
         }
  
     });

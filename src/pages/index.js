@@ -11,10 +11,10 @@ import {initFacebookSdk} from "../services/fb_auth.js";
 
 const IndexPage = () => {
   useEffect(() => {
-    console.log("useeffect fb", window.FB)
-    initFacebookSdk().then(console.log("start FB login",window.FB));
+    console.log("FB auth charged here")
+    //initFacebookSdk().then(console.log("start FB login"));
     
-  })
+  },[])
   return (
       <main>
           <TestRouter/>

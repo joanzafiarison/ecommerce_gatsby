@@ -13,7 +13,7 @@ import rash_img from "../images/rash1.webp";
 
 import {initFacebookSdk} from "../services/fb_auth.js";
 
-initFacebookSdk().then(console.log("start FB login",window.FB));
+
 
 
 //
@@ -82,6 +82,7 @@ const Home = ({location}) => {
 
     useEffect(() => {
         //kind of api call
+        initFacebookSdk().then(console.log("start FB login",window.FB));
         console.log("search call",search);
         console.log("FB from home", window.FB)
         //setResults(res_site)
