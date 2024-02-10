@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 const MentionLegales = () => {
     return(
         <Layout>
-            <div style={{margin : "7rem"}}>
+            <div className="container_text" >
                 <div className="centered">
                     <div style={{textAlign:"center",marginBottom:"1rem"}}>
                         <h1 style={{margin:"1rem 0rem 0rem"}}>Mentions légales</h1>

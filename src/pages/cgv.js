@@ -4,7 +4,7 @@ import Layout from "../components/Layout.js";
 function cgv() {
   return (
     <Layout>
-    <div style={{margin : "7rem"}}>
+    <div className='container_text'>
         <div className="centered">
         <h1>Conditions générales de vente</h1>
         <p>Vous trouverez ci-après un modèle de conditions générales de vente libre et gratuit que vous pouvez réutiliser à condition simplement de faire un lien vers ce post (ce qui permettra aux personnes qui les lisent de retrouver le modèle originel et ses évolutions).
